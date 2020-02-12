@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-simple.min.css?v=1.0.2">
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: 'search.xml'
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="摘录自http://c.biancheng.net/cplus/ 一 类只是一张图纸，起到说明的作用，不占用内存空间；对象才是具体的零件，要有地方来存放，才会占用内存空间。 类只是一个模板（Template），编译后不占用内存空间，所以在定义类时不能对成员变量进行初始化，因为没有地方存储数据。只有在创建对象以后才会给成员变量分配内存，这个时候就可以赋值了 创建的对象 stu 在栈上分配内存，需要使">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="artical">
+<meta property="og:url" content="https://LiuCanWu.github.io/2019/08/03/artical/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="摘录自http://c.biancheng.net/cplus/ 一 类只是一张图纸，起到说明的作用，不占用内存空间；对象才是具体的零件，要有地方来存放，才会占用内存空间。 类只是一个模板（Template），编译后不占用内存空间，所以在定义类时不能对成员变量进行初始化，因为没有地方存储数据。只有在创建对象以后才会给成员变量分配内存，这个时候就可以赋值了 创建的对象 stu 在栈上分配内存，需要使">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-22T09:52:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="artical">
+<meta name="twitter:description" content="摘录自http://c.biancheng.net/cplus/ 一 类只是一张图纸，起到说明的作用，不占用内存空间；对象才是具体的零件，要有地方来存放，才会占用内存空间。 类只是一个模板（Template），编译后不占用内存空间，所以在定义类时不能对成员变量进行初始化，因为没有地方存储数据。只有在创建对象以后才会给成员变量分配内存，这个时候就可以赋值了 创建的对象 stu 在栈上分配内存，需要使">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="canonical" href="https://LiuCanWu.github.io/2019/08/03/artical/">
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>artical | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-search">
+          <a href="javascript:;" class="popup-trigger">
+          
+            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+    
+
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+    </div>
+</nav>
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://LiuCanWu.github.io/2019/08/03/artical/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liu Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.ico">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">artical
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-03 14:33:05" itemprop="dateCreated datePublished" datetime="2019-08-03T14:33:05+08:00">2019-08-03</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-22 17:52:56" itemprop="dateModified" datetime="2019-08-22T17:52:56+08:00">2019-08-22</time>
+              </span>
+            
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">3.5k</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">3 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="摘录自"><a href="#摘录自" class="headerlink" title="摘录自"></a>摘录自</h4><p><a href="http://c.biancheng.net/cplus/" target="_blank" rel="noopener">http://c.biancheng.net/cplus/</a></p>
+<h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><blockquote>
+<p><strong>类只是一张图纸，起到说明的作用，不占用内存空间；对象才是具体的零件，要有地方来存放，才会占用内存空间。</strong></p>
+<p><strong>类只是一个模板（Template），编译后不占用内存空间，所以在定义类时不能对成员变量进行初始化，因为没有地方存储数据。只有在创建对象以后才会给成员变量分配内存，这个时候就可以赋值了</strong></p>
+<p><strong>创建的对象 stu 在栈上分配内存，需要使用<code>&amp;</code>获取它的地址,</strong></p>
+<p><strong>当然，也可以在堆上创建对象，这个时候就需要使用前面讲到的<code>new</code>关键字.也就是说，使用 new 在堆上创建出来的对象是匿名的，没法直接使用，必须要用一个指针指向它，再借助指针来访问它的成员变量或成员函数。</strong></p>
+<p>有了对象指针后，可以通过箭头<code>-&gt;</code>来访问对象的成员变量和成员函数,通过对象名字访问成员使用点号<code>.</code>，通过对象指针访问成员使用箭头<code>-&gt;</code>，这和结构体非常类似。</p>
+</blockquote>
+<blockquote>
+<p>  在 C++ 中，通过类名就可以创建对象，即将图纸生产成零件，这个过程叫做类的实例化，因此也称对象是类的一个实例（Ins<a href="http://c.biancheng.net/ref/tan.html" target="_blank" rel="noopener">tan</a>ce）。</p>
+<p>有些资料也将类的成员变量称为属性（Property），将类的成员函数称为方法（Method）。  </p>
+</blockquote>
+<blockquote>
+<p>C++ 中的输入与输出可以看做是一连串的数据流，输入即可视为从文件或键盘中输入程序中的一串数据流，而输出则可以视为从程序中输出一连串的数据流到显示屏或文件中。</p>
+</blockquote>
+<blockquote>
+<p>cout 和 cin 都是 C++ 的内置对象，而不是关键字。C++ 库定义了大量的类（Class），程序员可以使用它们来创建对象，cout 和 cin 就分别是 ostream 和 istream 类的对象，只不过它们是由标准库的开发者提前创建好的，可以直接拿来使用。这种在 C++ 中提前创建好的对象称为内置对象。</p>
+</blockquote>
+<blockquote>
+<p>C语言并没有彻底从语法上支持“真”和“假”，只是用 0 和非 0 来代表。这点在 <a href="http://c.biancheng.net/cplus/" target="_blank" rel="noopener">C++</a> 中得到了改善，C++ 新增了 <strong>bool 类型（布尔类型）</strong>，它一般占用 1 个字节长度。bool 类型只有两个取值，true 和 false：true 表示“真”，false 表示“假</p>
+</blockquote>
+<blockquote>
+<p>  但在<a href="http://c.biancheng.net/cplus/" target="_blank" rel="noopener">C++</a>中，这完全没有必要。C++ 允许多个函数拥有相同的名字，只要它们的参数列表不同就可以，这就是函数的重载（Function Overloading）。借助重载，一个函数名可以有多种用途。参数列表又叫参数签名，包括参数的类型、参数的个数和参数的顺序，只要有一个不同就叫做参数列表不同。 </p>
+<p>从这个角度讲，函数重载仅仅是语法层面的，本质上它们还是不同的函数，占用不同的内存，入口地址也不一样 </p>
+</blockquote>
+<blockquote>
+<p><code>::</code>被称为域解析符（也称作用域运算符或作用域限定符），用来连接类名和函数名，指明当前函数属于哪个类。</p>
+</blockquote>
+<h2 id="二"><a href="#二" class="headerlink" title="二"></a>二</h2><blockquote>
+<p>在类的内部（定义类的代码内部），无论成员被声明为 public、protected 还是 private，都是可以互相访问的，没有访问权限的限制。<strong>并且类的声明和成员函数的定义都是类定义的一部分</strong></p>
+</blockquote>
+<blockquote>
+<p>在类的外部（定义类的代码之外），只能通过对象访问成员，并且通过对象只能访问 public 属性的成员，不能访问 private、protected 属性的成员。  </p>
+</blockquote>
+<blockquote>
+<p>除了 set 函数和 get 函数，在创建对象时还可以调用构造函数来初始化各个成员变量，我们将在《<a href="http://c.biancheng.net/view/2221.html" target="_blank" rel="noopener">C++构造函数</a>》一节中展开讨论。不过构造函数只能给成员变量赋值一次，以后再修改还得借助 set 函数</p>
+</blockquote>
+<blockquote>
+<p>在栈上创建对象时，实参位于对象名后面，例如<code>Student stu(&quot;小明&quot;, 15, 92.5f)</code>；在堆上创建对象时，实参位于类名后面，例如<code>new Student(&quot;李华&quot;, 16, 96)</code>。</p>
+<p>构造函数没有返回值，因为没有变量来接收返回值，即使有也毫无用处，这意味着：不管是声明还是定义，函数名前面都不能出现返回值类型，即使是 void 也不允许；函数体中不能有 return 语句。</p>
+</blockquote>
+<h2 id="四-：继承与派生"><a href="#四-：继承与派生" class="headerlink" title="四 ：继承与派生"></a>四 ：继承与派生</h2><ol>
+<li><p>派生类除了拥有基类的成员，还可以定义自己的新成员，以增强类的功能。</p>
+</li>
+<li><p>如果希望基类的成员既<strong>不向外暴露（不能通过对象访问</strong>），还能在派生类中使用，那么只能声明为 protected。</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>继承方式/基类成员</th>
+<th>public成员</th>
+<th>protected成员</th>
+<th>private成员</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public继承</td>
+<td>public</td>
+<td>protected</td>
+<td>不可见</td>
+</tr>
+<tr>
+<td>protected继承</td>
+<td>protected</td>
+<td>protected</td>
+<td>不可见</td>
+</tr>
+<tr>
+<td>private继承</td>
+<td>private</td>
+<td>private</td>
+<td>不可见</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>因为 m_hobby 是 private 属性的，在派生类中不可见，所以只能借助基类的 public 成员函数 sethobby()、gethobby() 来访问。在派生类中访问基类 private 成员的唯一方法就是借助基类的非 private 成员函数，如果基类没有非 private 成员函数，那么该成员在派生类中将无法访问。</p>
+</li>
+<li><p>如果派生类中的成员（包括成员变量和成员函数）和基类中的成员重名，那么就会遮蔽从基类继承过来的成员，即:<strong>基类成员函数和派生类成员函数不会构成重载</strong>，如果派生类有同名函数，那么就会遮蔽基类中的所有同名函数，不管它们的参数是否一样.</p>
+</li>
+<li><p>类的构造函数不能被继承。构造函数不能被继承是有道理的，因为即使继承了，它的名字和派生类的名字也不一样，不能成为派生类的构造函数，当然更不能成为普通的成员函数。</p>
+</li>
+<li><p>在派生类的构造函数中调用基类的构造函数，来对基类的private 或 protected 成员进行初始化。<strong>因为基类构造函数不会被继承</strong>，不能当做普通的成员函数来调用。换句话说，只能将基类构造函数的调用放在函数头部，不能放在函数体中</p>
+</li>
+<li><p><strong>虚继承（Virtual Inheritance）</strong></p>
+<p>为了解决多继承时的命名冲突和冗余数据问题，<a href="http://c.biancheng.net/cplus/" target="_blank" rel="noopener">C++</a> 提出了虚继承，使得在派生类中只保留一份间接基类的成员。虚继承的目的是让某个类做出声明，承诺愿意共享它的基类。其中，这个被共享的基类就称为虚基类（Virtual Base Class）。在这种机制下，不论虚基类在继承体系中出现了多少次，在派生类中都只包含一份虚基类的成员。</p>
+</li>
+<li><p><strong>向上转型（Upcasting)</strong></p>
+<p>类其实也是一种数据类型，也可以发生数据类型转换，不过这种转换只有在基类和派生类之间才有意义，向上转型是只能将派生类赋值给基类</p>
+<p>将派生类对象赋值给基类对象时，会舍弃派生类新增的成员，也就是“大材小用”</p>
+<ol start="10">
+<li><p><strong>将派生类指针赋值给基类指针</strong></p>
+<p>编译器通过指针来访问成员变量，指针指向哪个对象就使用哪个对象的数据；编译器通过指针的类型来访问成员函数，指针属于哪个类的类型就使用哪个类的函数。</p>
+</li>
+<li><p><strong>因为引用和指针并没有本质上的区别，引用仅仅是对指针进行了简单封装</strong></p>
+</li>
+</ol>
+<h2 id="五：多态与虚函数"><a href="#五：多态与虚函数" class="headerlink" title="五：多态与虚函数"></a>五：多态与虚函数</h2><ol>
+<li><p>换句话说，<strong>通过基类指针只能访问派生类的成员变量，但是不能访问派生类的成员函数</strong>。为了消除这种尴尬，让基类指针能够访问派生类的成员函数，<a href="http://c.biancheng.net/cplus/" target="_blank" rel="noopener">C++</a> 增加了<strong>虚函数（Virtual Function）</strong>。使用虚函数非常简单，只需要在函数声明前面增加 virtual 关键字。  </p>
+<p>有了虚函数，基类指针指向基类对象时就使用基类的成员（包括成员函数和成员变量），指向派生类对象时就使用派生类的成员。换句话说，基类指针可以按照基类的方式来做事，也可以按照派生类的方式来做事，它有多种形态，或者说有多种表现方式，我们将这种现象称为<strong>多态（Polymorphism）</strong></p>
+<p><strong>多态是指通过基类的指针既可以访问基类的成员，也可以访问派生类的成员</strong>。</p>
+<p>多态是面向对象编程的主要特征之一，C++中虚函数的唯一用处就是构成多态,在于具有复杂继承关系的大中型程序，多态可以增加其灵活性，让代码更具有表现力</p>
+</li>
+<li><p><strong>纯虚函数</strong></p>
+<p>Line 类表示“线”，没有面积和体积，但它仍然定义了 area() 和 volume() 两个纯虚函数。这样的用意很明显：Line 类不需要被实例化，但是它为派生类提供了“约束条件”，派生类必须要实现这两个函数，完成计算面积和体积的功能，否则就不能实例化</p>
+<h2 id="六：运算符重载"><a href="#六：运算符重载" class="headerlink" title="六：运算符重载"></a>六：运算符重载</h2><ol>
+<li><p><strong>运算符重载实质</strong></p>
+<p>运算符重载其实就是定义一个函数，在函数体内实现想要的功能，当用到该运算符时，编译器会自动调用这个函数。也就是说，运算符重载是通过函数实现的，它本质上是函数重载。</p>
+</li>
+<li><p><strong>友元函数</strong></p>
+<p>运算符重载函数不是 complex 类的成员函数，但是却用到了 complex 类的 private 成员变量，所以必须在 complex 类中将该函数声明为友元函数。<strong>即将运算符重载函数作为全局函数时</strong>，二元操作符就需要两个参数，一元操作符需要一个参数，<strong>而且其中必须有一个参数是对象，</strong>好让编译器区分这是程序员自定义的运算符，防止程序员修改用于内置类型的运算符的性质</p>
+</li>
+<li><p><strong>运算符重载的意义</strong></p>
+<p>虽然运算符重载所实现的功能完全可以用函数替代，但运算符重载使得程序的书写更加人性化，易于阅读。运算符被重载后，原有的功能仍然保留，没有丧失或改变。通过运算符重载，扩大了C++已有运算符的功能，使之能用于对象。</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+              <a href="/2019/08/03/learn/" rel="prev" title="learn">
+                learn <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.ico"
+      alt="Liu Yang">
+  <p class="site-author-name" itemprop="name">Liu Yang</p>
+  <div class="site-description motion-element" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        
+        
+          
+        
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+        
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/LiuCanWu" title="GitHub &rarr; https://github.com/LiuCanWu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://example.com" title="http://example.com" rel="noopener" target="_blank">Title</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://google.com" title="https://google.com" rel="noopener" target="_blank">谷歌1</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="http://baidu.com" title="http://baidu.com" rel="noopener" target="_blank">百度1</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#摘录自"><span class="nav-number">1.</span> <span class="nav-text">摘录自</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一"><span class="nav-number"></span> <span class="nav-text">一</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二"><span class="nav-number"></span> <span class="nav-text">二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-：继承与派生"><span class="nav-number"></span> <span class="nav-text">四 ：继承与派生</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五：多态与虚函数"><span class="nav-number"></span> <span class="nav-text">五：多态与虚函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六：运算符重载"><span class="nav-number"></span> <span class="nav-text">六：运算符重载</span></a></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liu Yang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">4k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/schemes/muse.js?v=7.3.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="/js/schemes/love.js"></script>
+
+
+</body>
+</html>
