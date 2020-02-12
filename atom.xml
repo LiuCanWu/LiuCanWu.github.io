@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://LiuCanWu.github.io/"/>
-  <updated>2019-08-08T02:03:12.000Z</updated>
+  <updated>2019-08-22T09:52:56.000Z</updated>
   <id>https://LiuCanWu.github.io/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>数据结构-stack</title>
-    <link href="https://LiuCanWu.github.io/2019/08/08/stack/"/>
-    <id>https://LiuCanWu.github.io/2019/08/08/stack/</id>
-    <published>2019-08-08T01:01:52.000Z</published>
-    <updated>2019-08-08T02:03:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h2><p>数学表达式中有中缀表达式与后缀表达式，如 a + b * c - d / e 和 abc *+ de /-</p><p>需要某种存储方法，能顺序存储运算数，并在需要时“倒序输出”</p><p>堆栈(Stack): 具有一定操作约束的<strong>线性表</strong>，且只在一端(栈顶 ，TOP)做插入(入栈，Push)，删除(出栈，Pop),<strong>后入先出(LIFO)的存储顺序</strong>，Push 与 Pop 可以穿插交替进行</p><h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><ol><li><p>栈的顺序存储结构：通常由一个一维数组和一个记录栈顶元素位置的变量组成</p><p><code>void Push(Stack PtrS, Elementtype item){</code></p><p><code>if (Ptrs-&gt;Top == MaxSize-1){</code></p><p><code>printf(&quot;堆栈满&quot;);return;</code></p><p><code>}else {</code></p><p><code>Ptrs-&gt;Data[++(Ptrs-&gt;Top)] - item</code>;</p><p><code>return;</code></p><p><code>}</code> </p><p><code>}</code></p><p><code>ElementType Pop(Stack PtrS){</code></p><p><code>if(PtrS-&gt;Top == -1){</code></p><p><code>printf(&quot;堆栈空&quot;)；</code></p><p><code>return ERROR;</code></p><p><code>}else</code></p><p><code>return (PtrS-&gt;Data[(PtrS-&gt;Top)--]);</code></p><p><code>}</code></p></li><li><p>堆栈的链式存储：实际上是一个单链表，叫做链栈，插入如删除操作只能在链栈的栈顶进行。</p><p><code>Stack CreatStack(){  Stack S;  S = (Stack)malloc(sizeof(struct SNode));  S-&gt;Next = NULL;  return S;}int ISEmpty(Stack S){  return (S-&gt;Next == NULL);}</code></p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;堆栈&quot;&gt;&lt;a href=&quot;#堆栈&quot; class=&quot;headerlink&quot; title=&quot;堆栈&quot;&gt;&lt;/a&gt;堆栈&lt;/h2&gt;&lt;p&gt;数学表达式中有中缀表达式与后缀表达式，如 a + b * c - d / e 和 abc *+ de /-&lt;/p&gt;
-&lt;p&gt;需要某种存储方法，
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>artical</title>
