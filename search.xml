@@ -40,44 +40,6 @@ int ISEmpty(Stack S)
 ]]></content>
   </entry>
   <entry>
-    <title>learn</title>
-    <url>/2019/08/03/learn/</url>
-    <content><![CDATA[<h1 id="1-统计学习方法概论"><a href="#1-统计学习方法概论" class="headerlink" title="1.统计学习方法概论"></a>1.统计学习方法概论</h1><p><em>2.感知机</em></p>
-<p><strong>3.k近邻法</strong></p>
-<p>+++</p>
-<hr>
-<hr>
-<p><strong><em>4.朴素贝叶斯法</em></strong></p>
-<blockquote>
-<p>#5.决策树<br>‘ 6.逻辑斯蒂回归与最大熵模型 ‘</p>
-<p>#7.支持向量机</p>
-<p>#8.提升方法</p>
-<p>#9.EM算法及其推广</p>
-<p>#10.隐马尔可夫模型</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th align="center">1</th>
-<th align="center">2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">3</td>
-<td align="center">4</td>
-</tr>
-</tbody></table>
-<hr>
-]]></content>
-      <categories>
-        <category>人工智能的基本原理</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>西瓜书</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>artical</title>
     <url>/2019/08/03/artical/</url>
     <content><![CDATA[<h4 id="摘录自"><a href="#摘录自" class="headerlink" title="摘录自"></a>摘录自</h4><p><a href="http://c.biancheng.net/cplus/" target="_blank" rel="noopener">http://c.biancheng.net/cplus/</a></p>
