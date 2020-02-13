@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>用Typora写Hexo博客</title>
+    <url>/2020/02/13/%E7%94%A8Typora%E5%86%99Hexo%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>artical</title>
     <url>/2019/08/03/artical/</url>
     <content><![CDATA[<h4 id="摘录自"><a href="#摘录自" class="headerlink" title="摘录自"></a>摘录自</h4><p><a href="http://c.biancheng.net/cplus/" target="_blank" rel="noopener">http://c.biancheng.net/cplus/</a></p>
@@ -97,31 +102,30 @@
 <p>类其实也是一种数据类型，也可以发生数据类型转换，不过这种转换只有在基类和派生类之间才有意义，向上转型是只能将派生类赋值给基类</p>
 <p>将派生类对象赋值给基类对象时，会舍弃派生类新增的成员，也就是“大材小用”</p>
 <ol start="10">
-<li><p><strong>将派生类指针赋值给基类指针</strong></p>
-<p>编译器通过指针来访问成员变量，指针指向哪个对象就使用哪个对象的数据；编译器通过指针的类型来访问成员函数，指针属于哪个类的类型就使用哪个类的函数。</p>
-</li>
-<li><p><strong>因为引用和指针并没有本质上的区别，引用仅仅是对指针进行了简单封装</strong></p>
-</li>
+<li><strong>将派生类指针赋值给基类指针</strong></li>
 </ol>
-<h2 id="五：多态与虚函数"><a href="#五：多态与虚函数" class="headerlink" title="五：多态与虚函数"></a>五：多态与虚函数</h2><ol>
-<li><p>换句话说，<strong>通过基类指针只能访问派生类的成员变量，但是不能访问派生类的成员函数</strong>。为了消除这种尴尬，让基类指针能够访问派生类的成员函数，<a href="http://c.biancheng.net/cplus/" target="_blank" rel="noopener">C++</a> 增加了<strong>虚函数（Virtual Function）</strong>。使用虚函数非常简单，只需要在函数声明前面增加 virtual 关键字。  </p>
+<p>编译器通过指针来访问成员变量，指针指向哪个对象就使用哪个对象的数据；编译器通过指针的类型来访问成员函数，指针属于哪个类的类型就使用哪个类的函数。</p>
+<ol start="11">
+<li><strong>因为引用和指针并没有本质上的区别，引用仅仅是对指针进行了简单封装</strong></li>
+</ol>
+<h2 id="五：多态与虚函数"><a href="#五：多态与虚函数" class="headerlink" title="五：多态与虚函数"></a>五：多态与虚函数</h2><p>1.换句话说，<strong>通过基类指针只能访问派生类的成员变量，但是不能访问派生类的成员函数</strong>。为了消除这种尴尬，让基类指针能够访问派生类的成员函数，<a href="http://c.biancheng.net/cplus/" target="_blank" rel="noopener">C++</a> 增加了<strong>虚函数（Virtual Function）</strong>。使用虚函数非常简单，只需要在函数声明前面增加 virtual 关键字。  </p>
 <p>有了虚函数，基类指针指向基类对象时就使用基类的成员（包括成员函数和成员变量），指向派生类对象时就使用派生类的成员。换句话说，基类指针可以按照基类的方式来做事，也可以按照派生类的方式来做事，它有多种形态，或者说有多种表现方式，我们将这种现象称为<strong>多态（Polymorphism）</strong></p>
 <p><strong>多态是指通过基类的指针既可以访问基类的成员，也可以访问派生类的成员</strong>。</p>
 <p>多态是面向对象编程的主要特征之一，C++中虚函数的唯一用处就是构成多态,在于具有复杂继承关系的大中型程序，多态可以增加其灵活性，让代码更具有表现力</p>
-</li>
-<li><p><strong>纯虚函数</strong></p>
+<ol start="2">
+<li><strong>纯虚函数</strong></li>
+</ol>
 <p>Line 类表示“线”，没有面积和体积，但它仍然定义了 area() 和 volume() 两个纯虚函数。这样的用意很明显：Line 类不需要被实例化，但是它为派生类提供了“约束条件”，派生类必须要实现这两个函数，完成计算面积和体积的功能，否则就不能实例化</p>
 <h2 id="六：运算符重载"><a href="#六：运算符重载" class="headerlink" title="六：运算符重载"></a>六：运算符重载</h2><ol>
-<li><p><strong>运算符重载实质</strong></p>
+<li><strong>运算符重载实质</strong></li>
+</ol>
 <p>运算符重载其实就是定义一个函数，在函数体内实现想要的功能，当用到该运算符时，编译器会自动调用这个函数。也就是说，运算符重载是通过函数实现的，它本质上是函数重载。</p>
-</li>
+<ol start="2">
 <li><p><strong>友元函数</strong></p>
 <p>运算符重载函数不是 complex 类的成员函数，但是却用到了 complex 类的 private 成员变量，所以必须在 complex 类中将该函数声明为友元函数。<strong>即将运算符重载函数作为全局函数时</strong>，二元操作符就需要两个参数，一元操作符需要一个参数，<strong>而且其中必须有一个参数是对象，</strong>好让编译器区分这是程序员自定义的运算符，防止程序员修改用于内置类型的运算符的性质</p>
 </li>
 <li><p><strong>运算符重载的意义</strong></p>
 <p>虽然运算符重载所实现的功能完全可以用函数替代，但运算符重载使得程序的书写更加人性化，易于阅读。运算符被重载后，原有的功能仍然保留，没有丧失或改变。通过运算符重载，扩大了C++已有运算符的功能，使之能用于对象。</p>
-</li>
-</ol>
 </li>
 </ol>
 </li>
