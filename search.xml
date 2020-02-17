@@ -19,11 +19,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title></title>
-    <url>/2020/02/13/Untitled/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>用Typora写Hexo博客</title>
     <url>/2020/02/13/%E7%94%A8Typora%E5%86%99Hexo%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p><strong>Markdown 的一些基本语法</strong> </p>
@@ -106,6 +101,7 @@
 <li>谷歌搜索: <a href="http://www.google.com" target="_blank" rel="noopener">Google</a></li>
 </ul>
 <h2 id="图片格式"><a href="#图片格式" class="headerlink" title="图片格式"></a>图片格式</h2><p><code>![alt 属性文本](图片地址 &quot;可选标题&quot;)</code></p>
+<p>！<a href="2020all-star.jpg">2020allstar</a></p>
 <ul>
 <li>当然图片网址可以像链接地址,中的高级链接那样</li>
 <li>目前Markdown还无法指定图片的高度与宽度, 可以使用普通的<img> 标签</li>
@@ -134,7 +130,7 @@
 <h2 id="高级技巧"><a href="#高级技巧" class="headerlink" title="高级技巧"></a>高级技巧</h2><ul>
 <li>LaTex 公式, 需要用 $$ 对其进行包裹</li>
 </ul>
-<figure class="highlight mathematica"><table><tr><td class="code"><pre><span class="line">$$</span><br><span class="line">\mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125; </span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; <span class="number">0</span> \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; <span class="number">0</span> \\</span><br><span class="line">\end&#123;vmatrix&#125;</span><br><span class="line">$&#123;$tep1&#125;&#123;\style&#123;visibility:hidden&#125;&#123;(x+<span class="number">1</span>)(x+<span class="number">1</span>)&#125;&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+<figure class="highlight mathematica"><table><tr><td class="code"><pre><span class="line">\mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125; </span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; <span class="number">0</span> \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; <span class="number">0</span> \\</span><br><span class="line">\end&#123;vmatrix&#125;</span><br><span class="line">$&#123;$tep1&#125;&#123;\style&#123;visibility:hidden&#125;&#123;(x+<span class="number">1</span>)(x+<span class="number">1</span>)&#125;&#125;</span><br></pre></td></tr></table></figure>
 
 <p>$$<br>\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \<br>\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \<br>\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \<br>\end{vmatrix}<br>${$tep1}{\style{visibility:hidden}{(x+1)(x+1)}}<br>$$</p>
 <h2 id="绘制流程图-时序图-甘特图"><a href="#绘制流程图-时序图-甘特图" class="headerlink" title="绘制流程图, 时序图, 甘特图"></a>绘制流程图, 时序图, 甘特图</h2><ul>
