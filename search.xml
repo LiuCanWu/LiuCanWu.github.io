@@ -101,7 +101,7 @@
 <li>谷歌搜索: <a href="http://www.google.com" target="_blank" rel="noopener">Google</a></li>
 </ul>
 <h2 id="图片格式"><a href="#图片格式" class="headerlink" title="图片格式"></a>图片格式</h2><p><code>![alt 属性文本](图片地址 &quot;可选标题&quot;)</code></p>
-<p>！<a href="2020all-star.jpg">2020allstar</a></p>
+<p><img src="2020all-star.jpg" alt="2020allstar"></p>
 <ul>
 <li>当然图片网址可以像链接地址,中的高级链接那样</li>
 <li>目前Markdown还无法指定图片的高度与宽度, 可以使用普通的<img> 标签</li>

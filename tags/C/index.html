@@ -4,7 +4,7 @@
 
 
 
-<html class="theme-next mist use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="generator" content="Hexo 3.9.0">
@@ -28,9 +28,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Muse',
     version: '7.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":false},
     back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
     copycode: {"enable":false,"show_result":false,"style":null},
     fancybox: false,
@@ -115,7 +115,7 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-right ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -183,33 +183,11 @@
         
         
           
-          <li class="menu-item menu-item-categories">
-      
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-archives">
       
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-schedule">
-      
-    
-
-    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
 
   </li>
         <li class="menu-item menu-item-search">
@@ -222,12 +200,6 @@
     
 
     
-    
-      
-      
-    
-      
-      
     
       
       
@@ -502,7 +474,6 @@
   <script src="/js/schemes/muse.js?v=7.3.0"></script>
 
 
-
   
 
   <script src="/js/next-boot.js?v=7.3.0"></script>
@@ -551,6 +522,30 @@
 
 
 
+
+    
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'uPJ642ntvNL0ujKumgJNM7lB-gzGzoHsz',
+    appKey: '0PhremaWvHSaWYpFxFEJA5ny',
+    placeholder: '在此留话。。。',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn'
+  });
+</script>
 
 
 
