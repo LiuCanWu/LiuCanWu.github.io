@@ -59,19 +59,30 @@
   };
 </script>
 
-  <meta name="description" content="1.能够进行剪枝的原因">
+  <meta name="description" content="正则化(regularization)在 Deep Learning这本书中，Goodfellow等人提到正则化 为：”为了降低泛化误差，而非训练误差，对学习算法的改动“ PyTorch的优化器中使用L2参数正则化来限制模型的容量(减小方差) 通常可写为：  更特殊则写为：  其中W是网络中权重参量的集合，是总的训练损失，是数据loss(如目标函数)。 λR是个标量，是正则的力度。用来平衡da">
+<meta name="keywords" content="model pruning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="劉Yang の Blog">
-<meta property="og:url" content="https://LiuCanWu.github.io/2020/02/15/Pruning_网络剪枝/index.html">
+<meta property="og:title" content="Regularization概述">
+<meta property="og:url" content="https://LiuCanWu.github.io/2020/02/21/Regularization概述/index.html">
 <meta property="og:site_name" content="劉Yang の Blog">
-<meta property="og:description" content="1.能够进行剪枝的原因">
+<meta property="og:description" content="正则化(regularization)在 Deep Learning这本书中，Goodfellow等人提到正则化 为：”为了降低泛化误差，而非训练误差，对学习算法的改动“ PyTorch的优化器中使用L2参数正则化来限制模型的容量(减小方差) 通常可写为：  更特殊则写为：  其中W是网络中权重参量的集合，是总的训练损失，是数据loss(如目标函数)。 λR是个标量，是正则的力度。用来平衡da">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-15T14:39:24.827Z">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/1.jpg">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/2.jpg">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/3.jpg">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/4.jpg">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/5.jpg">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/6.jpg">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/7.jpg">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/8.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/9.JPG">
+<meta property="og:updated_time" content="2020-02-21T13:01:08.542Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="劉Yang の Blog">
-<meta name="twitter:description" content="1.能够进行剪枝的原因">
+<meta name="twitter:title" content="Regularization概述">
+<meta name="twitter:description" content="正则化(regularization)在 Deep Learning这本书中，Goodfellow等人提到正则化 为：”为了降低泛化误差，而非训练误差，对学习算法的改动“ PyTorch的优化器中使用L2参数正则化来限制模型的容量(减小方差) 通常可写为：  更特殊则写为：  其中W是网络中权重参量的集合，是总的训练损失，是数据loss(如目标函数)。 λR是个标量，是正则的力度。用来平衡da">
+<meta name="twitter:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/1.jpg">
   <link rel="alternate" href="/atom.xml" title="劉Yang の Blog" type="application/atom+xml">
-  <link rel="canonical" href="https://LiuCanWu.github.io/2020/02/15/Pruning_网络剪枝/">
+  <link rel="canonical" href="https://LiuCanWu.github.io/2020/02/21/Regularization概述/">
 
 
 <script id="page.configurations">
@@ -80,7 +91,7 @@
   };
 </script>
 
-  <title> | 劉Yang の Blog</title>
+  <title>Regularization概述 | 劉Yang の Blog</title>
   
 
 
@@ -246,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://LiuCanWu.github.io/2020/02/15/Pruning_网络剪枝/">
+    <link itemprop="mainEntityOfPage" href="https://LiuCanWu.github.io/2020/02/21/Regularization概述/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liu Yang">
@@ -260,7 +271,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">Regularization概述
 
               
             
@@ -280,7 +291,7 @@
                 
               
 
-              <time title="创建时间：2020-02-15 15:12:54 / 修改时间：22:39:24" itemprop="dateCreated datePublished" datetime="2020-02-15T15:12:54+08:00">2020-02-15</time>
+              <time title="创建时间：2020-02-21 16:19:03 / 修改时间：21:01:08" itemprop="dateCreated datePublished" datetime="2020-02-21T16:19:03+08:00">2020-02-21</time>
             </span>
           
             
@@ -300,8 +311,8 @@
       <span class="post-meta-item-text">评论数：</span>
     
   
-    <a href="/2020/02/15/Pruning_网络剪枝/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/15/Pruning_网络剪枝/" itemprop="commentCount"></span>
+    <a href="/2020/02/21/Regularization概述/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/21/Regularization概述/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -314,7 +325,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">148</span>
+              <span title="本文字数">805</span>
             </span>
           
             <span class="post-meta-item">
@@ -337,19 +348,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="1-能够进行剪枝的原因"><a href="#1-能够进行剪枝的原因" class="headerlink" title="1.能够进行剪枝的原因"></a>1.能够进行剪枝的原因</h3><a id="more"></a>
+        <a id="more"></a>
 
-<h3 id="2-进行剪枝得到依据"><a href="#2-进行剪枝得到依据" class="headerlink" title="2. 进行剪枝得到依据"></a>2. 进行剪枝得到依据</h3><h3 id="3-很重要的一点"><a href="#3-很重要的一点" class="headerlink" title="3.很重要的一点"></a>3.很重要的一点</h3><blockquote>
-<ol>
-<li>不论是再网络训练期间（如vgg16），还是这种剪枝压缩，或用MobileNet的卷及方式代替传统的卷积方法，一层一层的训练或替换都很关键</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="2">
-<li>进行非结构性剪枝产生的权重矩阵是稀疏的，再没有定制的硬件及软件库支持的情况下，达不到压缩与加速的效果。</li>
-<li></li>
-</ol>
-</blockquote>
+<h2 id="正则化-regularization"><a href="#正则化-regularization" class="headerlink" title="正则化(regularization)"></a>正则化(regularization)</h2><p>在 <a href="https://nervanasystems.github.io/distiller/regularization.html#deep-learning" target="_blank" rel="noopener">Deep Learning</a>这本书中，Goodfellow等人提到正则化 为：”为了降低泛化误差，而非训练误差，对学习算法的改动“</p>
+<p>PyTorch的优化器中使用L2参数正则化来限制模型的容量(减小方差)</p>
+<p>通常可写为：</p>
+<p><img src="1.jpg" alt></p>
+<p>更特殊则写为：</p>
+<p><img src="2.jpg" alt></p>
+<p>其中W是网络中权重参量的集合，<img src="3.jpg" alt>是总的训练损失，<img src="4.jpg" alt>是数据loss(如目标函数)。</p>
+<p>λR是个标量，是正则的力度。用来平衡data error 与 regularization error,在PyTorch中就是参数<code>weighr_decay</code> </p>
+<p>此外，L2正则化表达式为</p>
+<p><img src="5.jpg" alt></p>
+<h2 id="稀疏化与正则化的关系"><a href="#稀疏化与正则化的关系" class="headerlink" title="稀疏化与正则化的关系"></a>稀疏化与正则化的关系</h2><p>正则化与一些DNN引入稀疏的方法有关。在<a href="https://arxiv.org/abs/1607.04381" target="_blank" rel="noopener">DSD</a>中，韩松等人用剪枝作为正则化方式来提升模型的精度。并且解释到：”稀疏是正则化的一种有力方式，我们的直觉，在给定稀疏度限制的条件下，一旦网络达到了一个局部最小值，降低限制给网路更多的自由来逃离鞍点，到另一个精度更高的局部最小“</p>
+<p>当然，正则化也可用来引入稀疏度，如L 1-norm</p>
+<p><img src="6.jpg" alt="l1-norm"></p>
+<p>L2正则化也可以通过减小大的参数，避免过拟合提升模型精度。但没有迫使这些参数为零。L1正则化使得一些参数为零，因此限制了模型的容量，同时简化了模型。这可以看作是一种特征选择(feature selection)</p>
+<p>在distiller库中，可以设置<code>weight_deacy</code> 参数是否为零，来搭配使用两种正则化方式</p>
+<p><img src="7.jpg" alt></p>
+<p>并且在类<code>distiller.L1Regularization</code> 中实现了L1正则化。</p>
+<h2 id="组正则化-Group-Regularization"><a href="#组正则化-Group-Regularization" class="headerlink" title="组正则化(Group Regularization)"></a>组正则化(Group Regularization)</h2><p>在组正则化中，我们将惩罚整组的参数，而不是单个的。这个组结构是预先定义的。</p>
+<p>对于数据损失，以及基于元素的正则化，可以加入组正则化(Group regularization),将某一层的组参数表示为<img src="8.JPG" alt="Wl">,将其作为惩罚的一部分加入，损失的整体表示为：</p>
+<p><img src="9.JPG" alt="loss"></p>
+<p>组正则化也可称为块正则化，结构正则化，或粗粒度稀疏。组稀疏化是规整的，因此有利于提高推理速度。</p>
 
     </div>
 
@@ -358,10 +379,16 @@
     
 
     <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/model-pruning/" rel="tag"># model pruning</a>
+          
+        </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/13/用Typora写Hexo博客/" rel="next" title="用Typora写Hexo博客">
-                <i class="fa fa-chevron-left"></i> 用Typora写Hexo博客
+              <a href="/2020/02/20/Pruning概述/" rel="next" title="Pruning概述">
+                <i class="fa fa-chevron-left"></i> Pruning概述
               </a>
             
           </div>
@@ -369,10 +396,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/20/Pruning概述/" rel="prev" title="Pruning概述">
-                Pruning概述 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -500,7 +523,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-能够进行剪枝的原因"><span class="nav-number">1.</span> <span class="nav-text">1.能够进行剪枝的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-进行剪枝得到依据"><span class="nav-number">2.</span> <span class="nav-text">2. 进行剪枝得到依据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-很重要的一点"><span class="nav-number">3.</span> <span class="nav-text">3.很重要的一点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正则化-regularization"><span class="nav-number">1.</span> <span class="nav-text">正则化(regularization)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#稀疏化与正则化的关系"><span class="nav-number">2.</span> <span class="nav-text">稀疏化与正则化的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组正则化-Group-Regularization"><span class="nav-number">3.</span> <span class="nav-text">组正则化(Group Regularization)</span></a></li></ol></div>
             
 
           </div>

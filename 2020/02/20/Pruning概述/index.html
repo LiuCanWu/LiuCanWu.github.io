@@ -68,8 +68,8 @@
 <meta property="og:description" content="剪枝对神经网络的权重及激活值进行稀疏化的常见方法就是剪枝。剪枝过程中满足剪枝标准的权重会被赋值为零，确保这些被“剪掉” 的元素不会参与反向传播过程。 神经网络中的权重，偏置，激活值都可以视为被剪的对象。然而偏置的数量少且对每一层的输出影响较大，故没必要剪。 稀疏度(sparsity)稀疏度用来度量向量中零有多少，若向量中大多数元素都是零，可视为稀疏的。L0正则函数常被用来测量一向量中零元素的多">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://liucanwu.github.io/2020/02/20/Pruning概述/1.png">
-<meta property="og:image" content="https://liucanwu.github.io/2020/02/20/Pruning概述/2.png">
-<meta property="og:updated_time" content="2020-02-21T07:27:32.473Z">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/20/Pruning概述/2.PNG">
+<meta property="og:updated_time" content="2020-02-21T08:08:45.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pruning概述">
 <meta name="twitter:description" content="剪枝对神经网络的权重及激活值进行稀疏化的常见方法就是剪枝。剪枝过程中满足剪枝标准的权重会被赋值为零，确保这些被“剪掉” 的元素不会参与反向传播过程。 神经网络中的权重，偏置，激活值都可以视为被剪的对象。然而偏置的数量少且对每一层的输出影响较大，故没必要剪。 稀疏度(sparsity)稀疏度用来度量向量中零有多少，若向量中大多数元素都是零，可视为稀疏的。L0正则函数常被用来测量一向量中零元素的多">
@@ -297,7 +297,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-21 15:27:32" itemprop="dateModified" datetime="2020-02-21T15:27:32+08:00">2020-02-21</time>
+                <time title="修改时间：2020-02-21 16:08:45" itemprop="dateModified" datetime="2020-02-21T16:08:45+08:00">2020-02-21</time>
               </span>
             
           
@@ -373,7 +373,7 @@
 <p>我们想要模型在达到最高进度水平后，对某一层进行剪枝操作对整体性能的影响。</p>
 <p>当然在进行结构性剪枝时，我们也能对整体结构进行敏感度分析。</p>
 <p>在韩松等人的那篇论文中同样进行了element-wise 敏感度分析，结果如下图</p>
-<p><img src="2.png" alt="2"></p>
+<p><img src="2.PNG" alt></p>
 <p>在AlexNet中卷积层对于剪枝更敏感，并且随着层次加深敏感度降低。同时，全连接层更加不敏感，很好，因为网络中的大多数参数都存在于全连接层之中。</p>
 
     </div>
@@ -400,6 +400,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+              <a href="/2020/02/21/Regularization概述/" rel="prev" title="Regularization概述">
+                Regularization概述 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
     </footer>
@@ -457,7 +461,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -562,7 +566,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">6k</span>
+    <span title="站点总字数">7k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
