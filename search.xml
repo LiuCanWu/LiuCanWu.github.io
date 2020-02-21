@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Quantization</title>
+    <url>/2020/02/21/Quantization/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Regularization概述</title>
     <url>/2020/02/21/Regularization%E6%A6%82%E8%BF%B0/</url>
     <content><![CDATA[<a id="more"></a>
@@ -8,13 +13,13 @@
 <h2 id="正则化-regularization"><a href="#正则化-regularization" class="headerlink" title="正则化(regularization)"></a>正则化(regularization)</h2><p>在 <a href="https://nervanasystems.github.io/distiller/regularization.html#deep-learning" target="_blank" rel="noopener">Deep Learning</a>这本书中，Goodfellow等人提到正则化 为：”为了降低泛化误差，而非训练误差，对学习算法的改动“</p>
 <p>PyTorch的优化器中使用L2参数正则化来限制模型的容量(减小方差)</p>
 <p>通常可写为：</p>
-<p><img src="1.jpg" alt></p>
+<p><img src="1.JPG" alt="1"></p>
 <p>更特殊则写为：</p>
-<p><img src="2.jpg" alt></p>
-<p>其中W是网络中权重参量的集合，<img src="3.jpg" alt>是总的训练损失，<img src="4.jpg" alt>是数据loss(如目标函数)。</p>
+<p><img src="2.JPG" alt="2"></p>
+<p>其中W是网络中权重参量的集合，<img src="3.JPG" alt="3">是总的训练损失，<img src="4.JPG" alt="4">是数据loss(如目标函数)。</p>
 <p>λR是个标量，是正则的力度。用来平衡data error 与 regularization error,在PyTorch中就是参数<code>weighr_decay</code> </p>
 <p>此外，L2正则化表达式为</p>
-<p><img src="5.jpg" alt></p>
+<p><img src="5.JPG" alt="5"></p>
 <h2 id="稀疏化与正则化的关系"><a href="#稀疏化与正则化的关系" class="headerlink" title="稀疏化与正则化的关系"></a>稀疏化与正则化的关系</h2><p>正则化与一些DNN引入稀疏的方法有关。在<a href="https://arxiv.org/abs/1607.04381" target="_blank" rel="noopener">DSD</a>中，韩松等人用剪枝作为正则化方式来提升模型的精度。并且解释到：”稀疏是正则化的一种有力方式，我们的直觉，在给定稀疏度限制的条件下，一旦网络达到了一个局部最小值，降低限制给网路更多的自由来逃离鞍点，到另一个精度更高的局部最小“</p>
 <p>当然，正则化也可用来引入稀疏度，如L 1-norm</p>
 <p><img src="6.jpg" alt="l1-norm"></p>
