@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>劉Yang の Blog</title>
   
-  <subtitle>山川异域，风月同天</subtitle>
+  <subtitle>风月同天</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://LiuCanWu.github.io/"/>
-  <updated>2020-02-21T13:05:06.906Z</updated>
+  <updated>2020-02-21T14:43:56.004Z</updated>
   <id>https://LiuCanWu.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TensorFlow基础</title>
+    <link href="https://LiuCanWu.github.io/2020/02/21/TensorFlow%E5%9F%BA%E7%A1%80/"/>
+    <id>https://LiuCanWu.github.io/2020/02/21/TensorFlow基础/</id>
+    <published>2020-02-21T13:32:52.000Z</published>
+    <updated>2020-02-21T14:43:56.004Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><ul><li>TensorFlow支持三种类型的张量<ol><li>常量：为值不可改变的张量(存储在计算图的定义中，是占用内存的)</li><li>变量：当一个值在会话中需要更新时，使用变量来表示。变量在使用前需要被显示初始化。</li><li>占位符：用于将值输入到TensorFlow的图中，可以和feed_dict一起使用来输入数据。在训练神经网络时，通常用于提供新的训练样本。且在运行计算图时，可以为占位符赋值。故在构建一个计算图时不需要真正的输入数据。因此占位符不包含任何数据，不需要初始化它们。</li></ol></li></ul><p>所有常量、变量、占位符将在代码的计算图部分中定义。如果在定义部分使用print语句，输出的不是它的值，而是有关张量类型的信息。</p><p><img src="1.JPG" alt="1"></p><p>为了得到相关的值需要创建会话图，在会话图中进行输出。</p><p><img src="2.JPG" alt="2"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;TensorFlow支持三种类型的张量&lt;ol&gt;
+&lt;li&gt;常量：为值不可改变的张量(存储在计算图的定义中，是占用内存的)&lt;/li&gt;
+&lt;li&gt;变量：当一个值在会话中需要更新时，使用变量来表示。变量在使用前需要被显示初始化。&lt;/l
+      
+    
+    </summary>
+    
+    
+      <category term="TensorFlow" scheme="https://LiuCanWu.github.io/tags/TensorFlow/"/>
+    
+  </entry>
   
   <entry>
     <title>Quantization</title>
