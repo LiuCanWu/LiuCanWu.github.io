@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://LiuCanWu.github.io/"/>
-  <updated>2020-02-21T14:43:56.004Z</updated>
+  <updated>2020-02-22T14:53:47.629Z</updated>
   <id>https://LiuCanWu.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://LiuCanWu.github.io/2020/02/21/TensorFlow%E5%9F%BA%E7%A1%80/"/>
     <id>https://LiuCanWu.github.io/2020/02/21/TensorFlow基础/</id>
     <published>2020-02-21T13:32:52.000Z</published>
-    <updated>2020-02-21T14:43:56.004Z</updated>
+    <updated>2020-02-22T14:53:47.629Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><ul><li>TensorFlow支持三种类型的张量<ol><li>常量：为值不可改变的张量(存储在计算图的定义中，是占用内存的)</li><li>变量：当一个值在会话中需要更新时，使用变量来表示。变量在使用前需要被显示初始化。</li><li>占位符：用于将值输入到TensorFlow的图中，可以和feed_dict一起使用来输入数据。在训练神经网络时，通常用于提供新的训练样本。且在运行计算图时，可以为占位符赋值。故在构建一个计算图时不需要真正的输入数据。因此占位符不包含任何数据，不需要初始化它们。</li></ol></li></ul><p>所有常量、变量、占位符将在代码的计算图部分中定义。如果在定义部分使用print语句，输出的不是它的值，而是有关张量类型的信息。</p><p><img src="1.JPG" alt="1"></p><p>为了得到相关的值需要创建会话图，在会话图中进行输出。</p><p><img src="2.JPG" alt="2"></p>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><ul><li>TensorFlow支持三种类型的张量<ol><li>常量：为值不可改变的张量(存储在计算图的定义中，是占用内存的)</li><li>变量：当一个值在会话中需要更新时，使用变量来表示。变量在使用前需要被显示初始化。</li><li>占位符：用于将值输入到TensorFlow的图中，可以和feed_dict一起使用来输入数据。在训练神经网络时，通常用于提供新的训练样本。且在运行计算图时，可以为占位符赋值。故在构建一个计算图时不需要真正的输入数据。因此占位符不包含任何数据，不需要初始化它们。</li></ol></li></ul><p>所有常量、变量、占位符将在代码的计算图部分中定义。如果在定义部分使用print语句，输出的不是它的值，而是有关张量类型的信息。</p><p><img src="1.JPG" alt="1"></p><p>为了得到相关的值需要创建会话图，在会话图中进行输出。</p><p><img src="2.JPG" alt="2"></p><ul><li><p>TensorFlow程序的特点为，将程序分为两个独立的部分。1.构建神经网络蓝图，包括计算图的定义。2.在会话中执行计算图。正是图的定义与执行的分开设计让TF能够多平台及并行执行。</p><blockquote><p><strong>会话对象评估张量与操作对象的环境，不同的张量对象的值仅在会话对象中被初始化、访问和保存。在此之前张量对象只被抽象定义，在会话中才被赋予实际的意义。</strong></p></blockquote></li></ul><h2 id="如何指定CPU或GPU操作"><a href="#如何指定CPU或GPU操作" class="headerlink" title="如何指定CPU或GPU操作"></a>如何指定CPU或GPU操作</h2><h2 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h2><p>在 TensorFlow 中可以通过三种方式读取数据：</p><ol><li>通过feed_dict传递数据；</li><li>从文件中读取数据；</li><li>使用预加载的数据；</li></ol>]]></content>
     
     <summary type="html">
     
@@ -49,12 +49,23 @@
     <link href="https://LiuCanWu.github.io/2020/02/21/Quantization/"/>
     <id>https://LiuCanWu.github.io/2020/02/21/Quantization/</id>
     <published>2020-02-21T13:05:06.000Z</published>
-    <updated>2020-02-21T13:05:06.906Z</updated>
+    <updated>2020-02-22T09:04:37.642Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><p>量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表示INT8。当然，用更少的位数表示如4/2/1-bits表示，也在积极探索中。</p><h2 id="练一下插入数学公式，文章底部引用"><a href="#练一下插入数学公式，文章底部引用" class="headerlink" title="练一下插入数学公式，文章底部引用"></a>练一下插入数学公式，文章底部引用</h2><h2 id="动机：overall-efficiency"><a href="#动机：overall-efficiency" class="headerlink" title="动机：overall efficiency"></a>动机：overall efficiency</h2><p>进行量化的显著优势是，能明显降低带宽与所用存储。如用INT8来表示权重与激活值相较与FP32表示能减少4倍带宽利用。此外，整形运算比浮点计算更快，存储空间及耗能更少。</p><table><thead><tr><th>INT8 Operation</th><th>Energy Saving vs FP32</th><th>Area Saving vs FP32</th></tr></thead><tbody><tr><td>Add</td><td>30x</td><td>116x</td></tr><tr><td>Multiply</td><td>18.5x</td><td>27x</td></tr></tbody></table><p>若用更少的位数量化，如二进制(-1,1)或三进制(-1,0,1).则卷积层与全连接层只需加减操作，完全不需要乘法。若激活值也用二进制表示，那加法也不需要了，只需要进行位操作<a href="https://nervanasystems.github.io/distiller/quantization.html#rastegari-et-al-2016" target="_blank" rel="noopener">Rastegari et al., 2016</a></p><h2 id="Integer-vs-FP32"><a href="#Integer-vs-FP32" class="headerlink" title="Integer vs. FP32"></a>Integer vs. FP32</h2><p>数字格式主要有两个属性，1. 动态范围，指可表示的数的范围。2. 在动态范围内能够表示多少数值，决定了精度/分辨率。</p><p>对于整形格式它的动态范围是<img src="1.JPG" alt="range">, n是位数，如INT8的范围是[-128, 127].对于FP32它的动态范围大约是<img src="2.JPG" alt="fprange">.可以看出FP32能够表示更多的值，这对于深度学习模型来说很好。位了解决动态范围窄的问题，通常会加入scale factor将模型中向量的动态范围映射到整形范围中。但精度低的问题依然没有解决。</p><p>需要指出，大多数情况下scale factor是一个浮点数，即使使用整数表示，也避免不了浮点运算。</p><h2 id="避免溢出"><a href="#避免溢出" class="headerlink" title="避免溢出"></a>避免溢出</h2><p>卷积及全连接层中包括在加法器存储中间值，限于整形格式有限的动态范围，对于加法器如果使用和权重及激活值相同的位宽，很肯能会溢出很快，因此，加法器通常使用更高的位宽。</p><h2 id="INT8量化"><a href="#INT8量化" class="headerlink" title="INT8量化"></a>INT8量化</h2><p>大多数情况，可以对一个FP32的模型直接进行INT8量化，在没有re-training的情况下，可得到精度损失很小的结果，若进行fine-tunning可进一步提高精度。</p>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;p&gt;量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表
+      
+    
     </summary>
     
+    
+      <category term="model compress quantization" scheme="https://LiuCanWu.github.io/tags/model-compress-quantization/"/>
     
   </entry>
   
