@@ -24,6 +24,9 @@
 </blockquote>
 </li>
 </ul>
+<ul>
+<li>run函数原型：<code>run(fetches,feed_dict=None,options=None,run_metadata)</code> ,其中运算结果在fetches中提取，为了得到fetches的结果所需的变量由<code>feed_dict</code> 提供。</li>
+</ul>
 <h2 id="如何指定CPU或GPU操作"><a href="#如何指定CPU或GPU操作" class="headerlink" title="如何指定CPU或GPU操作"></a>如何指定CPU或GPU操作</h2><h2 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h2><p>在 TensorFlow 中可以通过三种方式读取数据：</p>
 <ol>
 <li>通过feed_dict传递数据；</li>
