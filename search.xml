@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>用Typora写Markdown数学公式</title>
+    <url>/2020/02/23/%E7%94%A8Typora%E5%86%99Markdown%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h3 id="在Typoa中选择数学模块"><a href="#在Typoa中选择数学模块" class="headerlink" title="在Typoa中选择数学模块"></a>在Typoa中选择数学模块</h3><ul>
+<li>选择“段落” ——&gt; “公式块”</li>
+<li>快捷键Ctrl+Shift+m</li>
+<li>“$$” + 回车</li>
+</ul>
+<h3 id="添加数学公式"><a href="#添加数学公式" class="headerlink" title="添加数学公式"></a>添加数学公式</h3><ul>
+<li><p>上标：<code>x^2 + y^2 =1</code><br>$$<br>x^2 + y^2 =1<br>$$</p>
+</li>
+<li><p>下标：<code>a_1*x_1+a_2 * x_2 = c_1</code><br>$$<br>a_1*x_1+a_2 * x_2 = c_1<br>$$</p>
+</li>
+<li><p>分式：<code>\frac{-b+8}{3*a}</code><br>$$<br>\frac{-b+8}{3*a}<br>$$</p>
+</li>
+<li></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>论文——_Lwc</title>
     <url>/2020/02/23/%E8%AE%BA%E6%96%87%E2%80%94%E2%80%94-Lwc/</url>
     <content><![CDATA[<a id="more"></a>
