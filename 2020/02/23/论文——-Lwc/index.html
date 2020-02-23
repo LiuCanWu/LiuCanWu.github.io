@@ -59,30 +59,28 @@
   };
 </script>
 
-  <meta name="description" content="正则化(regularization)在 Deep Learning这本书中，Goodfellow等人提到正则化 为：”为了降低泛化误差，而非训练误差，对学习算法的改动“ PyTorch的优化器中使用L2参数正则化来限制模型的容量(减小方差) 通常可写为：  更特殊则写为：  其中W是网络中权重参量的集合，是总的训练损失，是数据loss(如目标函数)。 λR是个标量，是正则的力度。用来平衡da">
-<meta name="keywords" content="model pruning">
+  <meta name="description" content="Learning both Weights and Connections for Effificient Neural Networks 摘要为了传统神经网络运行时所需的存储及计算资源，将层间的神经元的连接权重依据幅度大小排序，在不影响精度的情况下，去除掉那些冗余的不重要的连接。剪枝过程分三步走–&amp;gt; train-prune-retrain. 测试结果，AlexNet在ImafeNet上">
+<meta name="keywords" content="pruning 读论文">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Regularization概述">
-<meta property="og:url" content="https://LiuCanWu.github.io/2020/02/21/Regularization概述/index.html">
+<meta property="og:title" content="论文——_Lwc">
+<meta property="og:url" content="https://LiuCanWu.github.io/2020/02/23/论文——-Lwc/index.html">
 <meta property="og:site_name" content="劉Yang の Blog">
-<meta property="og:description" content="正则化(regularization)在 Deep Learning这本书中，Goodfellow等人提到正则化 为：”为了降低泛化误差，而非训练误差，对学习算法的改动“ PyTorch的优化器中使用L2参数正则化来限制模型的容量(减小方差) 通常可写为：  更特殊则写为：  其中W是网络中权重参量的集合，是总的训练损失，是数据loss(如目标函数)。 λR是个标量，是正则的力度。用来平衡da">
+<meta property="og:description" content="Learning both Weights and Connections for Effificient Neural Networks 摘要为了传统神经网络运行时所需的存储及计算资源，将层间的神经元的连接权重依据幅度大小排序，在不影响精度的情况下，去除掉那些冗余的不重要的连接。剪枝过程分三步走–&amp;gt; train-prune-retrain. 测试结果，AlexNet在ImafeNet上">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/1.JPG">
-<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/2.JPG">
-<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/3.JPG">
-<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/4.JPG">
-<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/5.JPG">
-<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/6.jpg">
-<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/7.jpg">
-<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/8.JPG">
-<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/9.JPG">
-<meta property="og:updated_time" content="2020-02-21T13:27:59.862Z">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/1.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/2.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/3.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/4.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/5.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/6.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/7.JPG">
+<meta property="og:updated_time" content="2020-02-23T09:09:08.199Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Regularization概述">
-<meta name="twitter:description" content="正则化(regularization)在 Deep Learning这本书中，Goodfellow等人提到正则化 为：”为了降低泛化误差，而非训练误差，对学习算法的改动“ PyTorch的优化器中使用L2参数正则化来限制模型的容量(减小方差) 通常可写为：  更特殊则写为：  其中W是网络中权重参量的集合，是总的训练损失，是数据loss(如目标函数)。 λR是个标量，是正则的力度。用来平衡da">
-<meta name="twitter:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/1.JPG">
+<meta name="twitter:title" content="论文——_Lwc">
+<meta name="twitter:description" content="Learning both Weights and Connections for Effificient Neural Networks 摘要为了传统神经网络运行时所需的存储及计算资源，将层间的神经元的连接权重依据幅度大小排序，在不影响精度的情况下，去除掉那些冗余的不重要的连接。剪枝过程分三步走–&amp;gt; train-prune-retrain. 测试结果，AlexNet在ImafeNet上">
+<meta name="twitter:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/1.JPG">
   <link rel="alternate" href="/atom.xml" title="劉Yang の Blog" type="application/atom+xml">
-  <link rel="canonical" href="https://LiuCanWu.github.io/2020/02/21/Regularization概述/">
+  <link rel="canonical" href="https://LiuCanWu.github.io/2020/02/23/论文——-Lwc/">
 
 
 <script id="page.configurations">
@@ -91,7 +89,7 @@
   };
 </script>
 
-  <title>Regularization概述 | 劉Yang の Blog</title>
+  <title>论文——_Lwc | 劉Yang の Blog</title>
   
 
 
@@ -257,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://LiuCanWu.github.io/2020/02/21/Regularization概述/">
+    <link itemprop="mainEntityOfPage" href="https://LiuCanWu.github.io/2020/02/23/论文——-Lwc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liu Yang">
@@ -271,7 +269,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">Regularization概述
+          <h1 class="post-title" itemprop="name headline">论文——_Lwc
 
               
             
@@ -291,7 +289,7 @@
                 
               
 
-              <time title="创建时间：2020-02-21 16:19:03 / 修改时间：21:27:59" itemprop="dateCreated datePublished" datetime="2020-02-21T16:19:03+08:00">2020-02-21</time>
+              <time title="创建时间：2020-02-23 14:41:44 / 修改时间：17:09:08" itemprop="dateCreated datePublished" datetime="2020-02-23T14:41:44+08:00">2020-02-23</time>
             </span>
           
             
@@ -311,8 +309,8 @@
       <span class="post-meta-item-text">评论数：</span>
     
   
-    <a href="/2020/02/21/Regularization概述/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/21/Regularization概述/" itemprop="commentCount"></span>
+    <a href="/2020/02/23/论文——-Lwc/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/23/论文——-Lwc/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -325,7 +323,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">805</span>
+              <span title="本文字数">1.3k</span>
             </span>
           
             <span class="post-meta-item">
@@ -350,27 +348,60 @@
       
         <a id="more"></a>
 
-<h2 id="正则化-regularization"><a href="#正则化-regularization" class="headerlink" title="正则化(regularization)"></a>正则化(regularization)</h2><p>在 <a href="https://nervanasystems.github.io/distiller/regularization.html#deep-learning" target="_blank" rel="noopener">Deep Learning</a>这本书中，Goodfellow等人提到正则化 为：”为了降低泛化误差，而非训练误差，对学习算法的改动“</p>
-<p>PyTorch的优化器中使用L2参数正则化来限制模型的容量(减小方差)</p>
-<p>通常可写为：</p>
-<p><img src="1.JPG" alt="1"></p>
-<p>更特殊则写为：</p>
-<p><img src="2.JPG" alt="2"></p>
-<p>其中W是网络中权重参量的集合，<img src="3.JPG" alt="3">是总的训练损失，<img src="4.JPG" alt="4">是数据loss(如目标函数)。</p>
-<p>λR是个标量，是正则的力度。用来平衡data error 与 regularization error,在PyTorch中就是参数<code>weighr_decay</code> </p>
-<p>此外，L2正则化表达式为</p>
-<p><img src="5.JPG" alt="5"></p>
-<h2 id="稀疏化与正则化的关系"><a href="#稀疏化与正则化的关系" class="headerlink" title="稀疏化与正则化的关系"></a>稀疏化与正则化的关系</h2><p>正则化与一些DNN引入稀疏的方法有关。在<a href="https://arxiv.org/abs/1607.04381" target="_blank" rel="noopener">DSD</a>中，韩松等人用剪枝作为正则化方式来提升模型的精度。并且解释到：”稀疏是正则化的一种有力方式，我们的直觉，在给定稀疏度限制的条件下，一旦网络达到了一个局部最小值，降低限制给网路更多的自由来逃离鞍点，到另一个精度更高的局部最小“</p>
-<p>当然，正则化也可用来引入稀疏度，如L 1-norm</p>
-<p><img src="6.jpg" alt="l1-norm"></p>
-<p>L2正则化也可以通过减小大的参数，避免过拟合提升模型精度。但没有迫使这些参数为零。L1正则化使得一些参数为零，因此限制了模型的容量，同时简化了模型。这可以看作是一种特征选择(feature selection)</p>
-<p>在distiller库中，可以设置<code>weight_deacy</code> 参数是否为零，来搭配使用两种正则化方式</p>
-<p><img src="7.jpg" alt></p>
-<p>并且在类<code>distiller.L1Regularization</code> 中实现了L1正则化。</p>
-<h2 id="组正则化-Group-Regularization"><a href="#组正则化-Group-Regularization" class="headerlink" title="组正则化(Group Regularization)"></a>组正则化(Group Regularization)</h2><p>在组正则化中，我们将惩罚整组的参数，而不是单个的。这个组结构是预先定义的。</p>
-<p>对于数据损失，以及基于元素的正则化，可以加入组正则化(Group regularization),将某一层的组参数表示为<img src="8.JPG" alt="Wl">,将其作为惩罚的一部分加入，损失的整体表示为：</p>
-<p><img src="9.JPG" alt="loss"></p>
-<p>组正则化也可称为块正则化，结构正则化，或粗粒度稀疏。组稀疏化是规整的，因此有利于提高推理速度。</p>
+<p><a href="https://arxiv.org/abs/1506.02626" target="_blank" rel="noopener"><strong>Learning both Weights and Connections for Effificient Neural Networks</strong></a></p>
+<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>为了传统神经网络运行时所需的存储及计算资源，将层间的神经元的连接权重依据幅度大小排序，在不影响精度的情况下，去除掉那些冗余的不重要的连接。剪枝过程分三步走–&gt; train-prune-retrain. 测试结果，AlexNet在ImafeNet上在没有带来精度损失的条件下参数减少了9倍，VGG-16减少了13倍。</p>
+<table>
+<thead>
+<tr>
+<th>网络模型</th>
+<th>LeNet-5</th>
+<th>AlexNet</th>
+<th>Deepface</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>参数量大小</td>
+<td>&lt;1M</td>
+<td>60M</td>
+<td>120M</td>
+</tr>
+</tbody></table>
+<ul>
+<li>存储、内存位宽、计算消耗</li>
+</ul>
+<p><img src="1.JPG" alt="energy table"></p>
+<p>从上表可以看出，神经网络在进行运算时主要的能耗用在了数据的读取上，即</p>
+<blockquote>
+<p>SRAM和DRAM， SRAM是片上的静态随机存储，这种存储器只要保持通电，里面存储的数据就可以恒常保持，耗电量小，访问速度快，容量也小；DRAM是片下的动态随机存储器，需要周期性的充电，定时刷新，故耗电量大，访问速度慢，但容量大。</p>
+</blockquote>
+<p>故放不进SRAM的网络模型，只能放进DRAM，同时耗能更多。</p>
+<h3 id="最近进展"><a href="#最近进展" class="headerlink" title="最近进展"></a>最近进展</h3><p>神经网络中冗余的参数，导致了计算与存储的浪费。为了去掉这些冗余之前也有一些工作进行了尝试。如对激活值进行INT8量化(Vanhoucke <em>et al.</em> ),通过近似低秩分解找到神经网络替代的线性结构( Denton <em>et al</em>),或通过向量量化压缩深度卷积网络。这些技术和神经网络剪枝都是正交的，可以组合使用。</p>
+<p>这篇文章中的剪枝过程共三步如下图所示，其中prun-&gt;retrain可以循环执行多轮</p>
+<p><img src="2.JPG" alt="jianzhigc"></p>
+<h3 id="剪枝过程"><a href="#剪枝过程" class="headerlink" title="剪枝过程"></a>剪枝过程</h3><ul>
+<li>最开始训练不是为了得到最终的权重值，而是为了学习那些权重是重要的。然后根据阈值去掉那些不重要的，再retrain恢复精度。循环多次直至符合要求。</li>
+</ul>
+<h4 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h4><p>正则方式的选择对剪枝和retrain的表现很有影响，L1正则化得到的剪枝效果不错，但retrain后的表现没有L2正则化好。</p>
+<h4 id="Dropout率调整"><a href="#Dropout率调整" class="headerlink" title="Dropout率调整"></a>Dropout率调整</h4><p>dropout通常是用来防止过拟合的，在retrain阶段dropout比例要随着模型的容量做出相应的调整。随着模型的参数逐渐稀疏，输出结果的预测方差(variance)也会越来越小，防止了过拟合，因此dropout率也要慢慢下调。</p>
+<p>进行定量分析调整的公式如下：</p>
+<p><img src="3.JPG" alt="formula"></p>
+<h4 id="局部剪枝及参数联合适应"><a href="#局部剪枝及参数联合适应" class="headerlink" title="局部剪枝及参数联合适应"></a>局部剪枝及参数联合适应</h4><ol>
+<li>一轮剪枝过后，进行retrain时的初始化权重，保持和原网络的初始化权重一样(针对这一点其实还是要视情况而定，在<a href="https://arxiv.org/abs/1803.03635" target="_blank" rel="noopener">The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks</a>这篇文章中也做了相应的实验)</li>
+<li>为了防止在retrain阶段出现梯度消失等问题，在剪枝完全连接层进行retrain时，会固定住卷积层的参数，反之亦然。</li>
+</ol>
+<h4 id="迭代剪枝"><a href="#迭代剪枝" class="headerlink" title="迭代剪枝"></a>迭代剪枝</h4><p>每轮迭代其实是一个寻找最优连接贪婪搜索的过程，作者也进行了基于绝对值的概率剪枝，但结果不理想。</p>
+<h4 id="剪掉神经元"><a href="#剪掉神经元" class="headerlink" title="剪掉神经元"></a>剪掉神经元</h4><p>在剪枝完一轮后，那些没有输入或输出的神经元可以被安全的剪掉。</p>
+<h3 id="实验验证"><a href="#实验验证" class="headerlink" title="实验验证"></a>实验验证</h3><p>作者使用Caffe框架在TItanX及GTX980上，对四种网络模型在MNIST及ImageNet数据集上进行了测试。</p>
+<ul>
+<li>AlexNet结果</li>
+</ul>
+<p><img src="4.JPG" alt="Alex"></p>
+<p><img src="5.JPG" alt="Alex"></p>
+<ul>
+<li>VGG16结果</li>
+</ul>
+<p><img src="6.JPG" alt="vgg"></p>
+<p><img src="7.JPG" alt="vgg"></p>
 
     </div>
 
@@ -382,13 +413,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/model-pruning/" rel="tag"># model pruning</a>
+            <a href="/tags/pruning-读论文/" rel="tag"># pruning 读论文</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/20/Pruning概述/" rel="next" title="Pruning概述">
-                <i class="fa fa-chevron-left"></i> Pruning概述
+              <a href="/2020/02/21/TensorFlow基础/" rel="next" title="TensorFlow基础">
+                <i class="fa fa-chevron-left"></i> TensorFlow基础
               </a>
             
           </div>
@@ -396,10 +427,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/21/Quantization/" rel="prev" title="Quantization">
-                Quantization <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -533,7 +560,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正则化-regularization"><span class="nav-number">1.</span> <span class="nav-text">正则化(regularization)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#稀疏化与正则化的关系"><span class="nav-number">2.</span> <span class="nav-text">稀疏化与正则化的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组正则化-Group-Regularization"><span class="nav-number">3.</span> <span class="nav-text">组正则化(Group Regularization)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最近进展"><span class="nav-number">2.</span> <span class="nav-text">最近进展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#剪枝过程"><span class="nav-number">3.</span> <span class="nav-text">剪枝过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正则化"><span class="nav-number">3.1.</span> <span class="nav-text">正则化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dropout率调整"><span class="nav-number">3.2.</span> <span class="nav-text">Dropout率调整</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部剪枝及参数联合适应"><span class="nav-number">3.3.</span> <span class="nav-text">局部剪枝及参数联合适应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#迭代剪枝"><span class="nav-number">3.4.</span> <span class="nav-text">迭代剪枝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#剪掉神经元"><span class="nav-number">3.5.</span> <span class="nav-text">剪掉神经元</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验验证"><span class="nav-number">4.</span> <span class="nav-text">实验验证</span></a></li></ol></div>
             
 
           </div>

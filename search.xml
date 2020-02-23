@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>论文——_Lwc</title>
+    <url>/2020/02/23/%E8%AE%BA%E6%96%87%E2%80%94%E2%80%94-Lwc/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<p><a href="https://arxiv.org/abs/1506.02626" target="_blank" rel="noopener"><strong>Learning both Weights and Connections for Effificient Neural Networks</strong></a></p>
+<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>为了传统神经网络运行时所需的存储及计算资源，将层间的神经元的连接权重依据幅度大小排序，在不影响精度的情况下，去除掉那些冗余的不重要的连接。剪枝过程分三步走–&gt; train-prune-retrain. 测试结果，AlexNet在ImafeNet上在没有带来精度损失的条件下参数减少了9倍，VGG-16减少了13倍。</p>
+<table>
+<thead>
+<tr>
+<th>网络模型</th>
+<th>LeNet-5</th>
+<th>AlexNet</th>
+<th>Deepface</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>参数量大小</td>
+<td>&lt;1M</td>
+<td>60M</td>
+<td>120M</td>
+</tr>
+</tbody></table>
+<ul>
+<li>存储、内存位宽、计算消耗</li>
+</ul>
+<p><img src="1.JPG" alt="energy table"></p>
+<p>从上表可以看出，神经网络在进行运算时主要的能耗用在了数据的读取上，即</p>
+<blockquote>
+<p>SRAM和DRAM， SRAM是片上的静态随机存储，这种存储器只要保持通电，里面存储的数据就可以恒常保持，耗电量小，访问速度快，容量也小；DRAM是片下的动态随机存储器，需要周期性的充电，定时刷新，故耗电量大，访问速度慢，但容量大。</p>
+</blockquote>
+<p>故放不进SRAM的网络模型，只能放进DRAM，同时耗能更多。</p>
+<h3 id="最近进展"><a href="#最近进展" class="headerlink" title="最近进展"></a>最近进展</h3><p>神经网络中冗余的参数，导致了计算与存储的浪费。为了去掉这些冗余之前也有一些工作进行了尝试。如对激活值进行INT8量化(Vanhoucke <em>et al.</em> ),通过近似低秩分解找到神经网络替代的线性结构( Denton <em>et al</em>),或通过向量量化压缩深度卷积网络。这些技术和神经网络剪枝都是正交的，可以组合使用。</p>
+<p>这篇文章中的剪枝过程共三步如下图所示，其中prun-&gt;retrain可以循环执行多轮</p>
+<p><img src="2.JPG" alt="jianzhigc"></p>
+<h3 id="剪枝过程"><a href="#剪枝过程" class="headerlink" title="剪枝过程"></a>剪枝过程</h3><ul>
+<li>最开始训练不是为了得到最终的权重值，而是为了学习那些权重是重要的。然后根据阈值去掉那些不重要的，再retrain恢复精度。循环多次直至符合要求。</li>
+</ul>
+<h4 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h4><p>正则方式的选择对剪枝和retrain的表现很有影响，L1正则化得到的剪枝效果不错，但retrain后的表现没有L2正则化好。</p>
+<h4 id="Dropout率调整"><a href="#Dropout率调整" class="headerlink" title="Dropout率调整"></a>Dropout率调整</h4><p>dropout通常是用来防止过拟合的，在retrain阶段dropout比例要随着模型的容量做出相应的调整。随着模型的参数逐渐稀疏，输出结果的预测方差(variance)也会越来越小，防止了过拟合，因此dropout率也要慢慢下调。</p>
+<p>进行定量分析调整的公式如下：</p>
+<p><img src="3.JPG" alt="formula"></p>
+<h4 id="局部剪枝及参数联合适应"><a href="#局部剪枝及参数联合适应" class="headerlink" title="局部剪枝及参数联合适应"></a>局部剪枝及参数联合适应</h4><ol>
+<li>一轮剪枝过后，进行retrain时的初始化权重，保持和原网络的初始化权重一样(针对这一点其实还是要视情况而定，在<a href="https://arxiv.org/abs/1803.03635" target="_blank" rel="noopener">The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks</a>这篇文章中也做了相应的实验)</li>
+<li>为了防止在retrain阶段出现梯度消失等问题，在剪枝完全连接层进行retrain时，会固定住卷积层的参数，反之亦然。</li>
+</ol>
+<h4 id="迭代剪枝"><a href="#迭代剪枝" class="headerlink" title="迭代剪枝"></a>迭代剪枝</h4><p>每轮迭代其实是一个寻找最优连接贪婪搜索的过程，作者也进行了基于绝对值的概率剪枝，但结果不理想。</p>
+<h4 id="剪掉神经元"><a href="#剪掉神经元" class="headerlink" title="剪掉神经元"></a>剪掉神经元</h4><p>在剪枝完一轮后，那些没有输入或输出的神经元可以被安全的剪掉。</p>
+<h3 id="实验验证"><a href="#实验验证" class="headerlink" title="实验验证"></a>实验验证</h3><p>作者使用Caffe框架在TItanX及GTX980上，对四种网络模型在MNIST及ImageNet数据集上进行了测试。</p>
+<ul>
+<li>AlexNet结果</li>
+</ul>
+<p><img src="4.JPG" alt="Alex"></p>
+<p><img src="5.JPG" alt="Alex"></p>
+<ul>
+<li>VGG16结果</li>
+</ul>
+<p><img src="6.JPG" alt="vgg"></p>
+<p><img src="7.JPG" alt="vgg"></p>
+]]></content>
+      <tags>
+        <tag>pruning 读论文</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>TensorFlow基础</title>
     <url>/2020/02/21/TensorFlow%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<a id="more"></a>
