@@ -59,23 +59,31 @@
   };
 </script>
 
-  <meta name="description" content="量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表示INT8。当然，用更少的位数表示如4/2/1-bits表示，也在积极探索中。 练一下插入数学公式，文章底部引用动机：overall efficiency进行量">
-<meta name="keywords" content="model compress quantization">
+  <meta name="description" content="Deep compression: Compressing deep neural networks with pruning, trained quantization and huffman coding 压缩、量化与编码基于上一篇文章的基础上Learning both Weights and Connections for Effificient Neural Networks，这篇文章中">
+<meta name="keywords" content="deep compression">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Quantization">
-<meta property="og:url" content="https://LiuCanWu.github.io/2020/02/21/Quantization/index.html">
+<meta property="og:title" content="韩韩松_Deep_Compression">
+<meta property="og:url" content="https://LiuCanWu.github.io/2020/02/25/韩韩松-Deep-Compression/index.html">
 <meta property="og:site_name" content="劉Yang の Blog">
-<meta property="og:description" content="量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表示INT8。当然，用更少的位数表示如4/2/1-bits表示，也在积极探索中。 练一下插入数学公式，文章底部引用动机：overall efficiency进行量">
+<meta property="og:description" content="Deep compression: Compressing deep neural networks with pruning, trained quantization and huffman coding 压缩、量化与编码基于上一篇文章的基础上Learning both Weights and Connections for Effificient Neural Networks，这篇文章中">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Quantization/1.JPG">
-<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Quantization/2.JPG">
-<meta property="og:updated_time" content="2020-02-22T09:04:37.642Z">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/25/韩韩松-Deep-Compression/1.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/25/韩韩松-Deep-Compression/2.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/25/韩韩松-Deep-Compression/3.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/25/韩韩松-Deep-Compression/4.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/25/韩韩松-Deep-Compression/5.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/25/韩韩松-Deep-Compression/6.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/25/韩韩松-Deep-Compression/7.jpg">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/25/韩韩松-Deep-Compression/8.jpg">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/25/韩韩松-Deep-Compression/9.jpg">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/25/韩韩松-Deep-Compression/10.jpg">
+<meta property="og:updated_time" content="2020-02-26T09:12:51.149Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Quantization">
-<meta name="twitter:description" content="量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表示INT8。当然，用更少的位数表示如4/2/1-bits表示，也在积极探索中。 练一下插入数学公式，文章底部引用动机：overall efficiency进行量">
-<meta name="twitter:image" content="https://liucanwu.github.io/2020/02/21/Quantization/1.JPG">
+<meta name="twitter:title" content="韩韩松_Deep_Compression">
+<meta name="twitter:description" content="Deep compression: Compressing deep neural networks with pruning, trained quantization and huffman coding 压缩、量化与编码基于上一篇文章的基础上Learning both Weights and Connections for Effificient Neural Networks，这篇文章中">
+<meta name="twitter:image" content="https://liucanwu.github.io/2020/02/25/韩韩松-Deep-Compression/1.JPG">
   <link rel="alternate" href="/atom.xml" title="劉Yang の Blog" type="application/atom+xml">
-  <link rel="canonical" href="https://LiuCanWu.github.io/2020/02/21/Quantization/">
+  <link rel="canonical" href="https://LiuCanWu.github.io/2020/02/25/韩韩松-Deep-Compression/">
 
 
 <script id="page.configurations">
@@ -84,7 +92,7 @@
   };
 </script>
 
-  <title>Quantization | 劉Yang の Blog</title>
+  <title>韩韩松_Deep_Compression | 劉Yang の Blog</title>
   
 
 
@@ -250,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://LiuCanWu.github.io/2020/02/21/Quantization/">
+    <link itemprop="mainEntityOfPage" href="https://LiuCanWu.github.io/2020/02/25/韩韩松-Deep-Compression/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liu Yang">
@@ -264,7 +272,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">Quantization
+          <h1 class="post-title" itemprop="name headline">韩韩松_Deep_Compression
 
               
             
@@ -284,7 +292,7 @@
                 
               
 
-              <time title="创建时间：2020-02-21 21:05:06" itemprop="dateCreated datePublished" datetime="2020-02-21T21:05:06+08:00">2020-02-21</time>
+              <time title="创建时间：2020-02-25 15:12:07" itemprop="dateCreated datePublished" datetime="2020-02-25T15:12:07+08:00">2020-02-25</time>
             </span>
           
             
@@ -297,7 +305,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-22 17:04:37" itemprop="dateModified" datetime="2020-02-22T17:04:37+08:00">2020-02-22</time>
+                <time title="修改时间：2020-02-26 17:12:51" itemprop="dateModified" datetime="2020-02-26T17:12:51+08:00">2020-02-26</time>
               </span>
             
           
@@ -314,8 +322,8 @@
       <span class="post-meta-item-text">评论数：</span>
     
   
-    <a href="/2020/02/21/Quantization/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/21/Quantization/" itemprop="commentCount"></span>
+    <a href="/2020/02/25/韩韩松-Deep-Compression/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/25/韩韩松-Deep-Compression/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -328,7 +336,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">897</span>
+              <span title="本文字数">1.2k</span>
             </span>
           
             <span class="post-meta-item">
@@ -352,34 +360,51 @@
 
       
         <a id="more"></a>
-
-<p>量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表示INT8。当然，用更少的位数表示如4/2/1-bits表示，也在积极探索中。</p>
-<h2 id="练一下插入数学公式，文章底部引用"><a href="#练一下插入数学公式，文章底部引用" class="headerlink" title="练一下插入数学公式，文章底部引用"></a>练一下插入数学公式，文章底部引用</h2><h2 id="动机：overall-efficiency"><a href="#动机：overall-efficiency" class="headerlink" title="动机：overall efficiency"></a>动机：overall efficiency</h2><p>进行量化的显著优势是，能明显降低带宽与所用存储。如用INT8来表示权重与激活值相较与FP32表示能减少4倍带宽利用。此外，整形运算比浮点计算更快，存储空间及耗能更少。</p>
-<table>
-<thead>
-<tr>
-<th>INT8 Operation</th>
-<th>Energy Saving vs FP32</th>
-<th>Area Saving vs FP32</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Add</td>
-<td>30x</td>
-<td>116x</td>
-</tr>
-<tr>
-<td>Multiply</td>
-<td>18.5x</td>
-<td>27x</td>
-</tr>
-</tbody></table>
-<p>若用更少的位数量化，如二进制(-1,1)或三进制(-1,0,1).则卷积层与全连接层只需加减操作，完全不需要乘法。若激活值也用二进制表示，那加法也不需要了，只需要进行位操作<a href="https://nervanasystems.github.io/distiller/quantization.html#rastegari-et-al-2016" target="_blank" rel="noopener">Rastegari et al., 2016</a></p>
-<h2 id="Integer-vs-FP32"><a href="#Integer-vs-FP32" class="headerlink" title="Integer vs. FP32"></a>Integer vs. FP32</h2><p>数字格式主要有两个属性，1. 动态范围，指可表示的数的范围。2. 在动态范围内能够表示多少数值，决定了精度/分辨率。</p>
-<p>对于整形格式它的动态范围是<img src="1.JPG" alt="range">, n是位数，如INT8的范围是[-128, 127].对于FP32它的动态范围大约是<img src="2.JPG" alt="fprange">.可以看出FP32能够表示更多的值，这对于深度学习模型来说很好。位了解决动态范围窄的问题，通常会加入scale factor将模型中向量的动态范围映射到整形范围中。但精度低的问题依然没有解决。</p>
-<p>需要指出，大多数情况下scale factor是一个浮点数，即使使用整数表示，也避免不了浮点运算。</p>
-<h2 id="避免溢出"><a href="#避免溢出" class="headerlink" title="避免溢出"></a>避免溢出</h2><p>卷积及全连接层中包括在加法器存储中间值，限于整形格式有限的动态范围，对于加法器如果使用和权重及激活值相同的位宽，很肯能会溢出很快，因此，加法器通常使用更高的位宽。</p>
-<h2 id="INT8量化"><a href="#INT8量化" class="headerlink" title="INT8量化"></a>INT8量化</h2><p>大多数情况，可以对一个FP32的模型直接进行INT8量化，在没有re-training的情况下，可得到精度损失很小的结果，若进行fine-tunning可进一步提高精度。</p>
+<p><a href="https://arxiv.xilesou.top/abs/1510.00149" target="_blank" rel="noopener">Deep compression: Compressing deep neural networks with pruning, trained quantization and huffman coding</a></p>
+<h2 id="压缩、量化与编码"><a href="#压缩、量化与编码" class="headerlink" title="压缩、量化与编码"></a>压缩、量化与编码</h2><p>基于上一篇文章的基础上<a href="https://arxiv.org/abs/1506.02626" target="_blank" rel="noopener"><strong>Learning both Weights and Connections for Effificient Neural Networks</strong></a>，这篇文章中的”deep compression” 主要有三个步骤，pruning, trianed quantization and Huffman coding.在不影响精度的情况下，这三步能够压缩网络大小35x到49x。</p>
+<p>之前的剪枝能够实现9x到13x的效果，随后的量化将FLP32量化为INT5,实现了进一步的压缩。</p>
+<p>流程图如下：</p>
+<p><img src="1.JPG" alt="1"></p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>在移动端部署要考虑的问题</p>
+<ul>
+<li>网络规模大小，能不能放进片上SRAM</li>
+<li>功耗，存取数据(占比最大)、数值计算</li>
+</ul>
+<blockquote>
+<p>如45nm CMOS的存储计算设备，一次浮点加法消耗0.9pJ，32bit 的SRAM存取消耗5pJ，32bit DRAM存取消耗640pJ。以一个有1000000个连接的网络为例，以20HZ的频率内存存取，需要的功率为$ (20H_z)(1G)(640pJ) = 12.8W$ </p>
+</blockquote>
+<p>深度神经网络在移动端部署会带来很多好处，如更好的隐私保护，占用更少的网络带宽，以及实时处理。</p>
+<h3 id="Trained-Quantization-and-weight-sharing"><a href="#Trained-Quantization-and-weight-sharing" class="headerlink" title="Trained Quantization and weight sharing"></a>Trained Quantization and weight sharing</h3><p>这一步作者通过参数量化，及共享权重/梯度进一步压缩。通过<strong>聚类</strong>算法相同或相近的值共享同一值来表达，减少所用的存储空间。</p>
+<p><img src="2.JPG" alt="2"></p>
+<p>其中压缩率<strong>r</strong>可用下式表示：</p>
+<p>​                                                            $r = \frac{nb}{nlog_2(k)+kb} $ </p>
+<p>n为连接数，b为原位宽(flp32),k为聚类的类数，$log_2(k)$ 为用来表达该类的索引的位宽。</p>
+<h4 id="权值共享"><a href="#权值共享" class="headerlink" title="权值共享"></a>权值共享</h4><p>是在网络完全训练之后，通过对每一层的权值进行聚类实现的(在不同层之间没有权值共享)。通过最小化不同类的类间距，公式如下</p>
+<p>​                                                   $arg \quad min \sum_{i=1}^{k} \sum_{\omega{\in}  c_i}^{}|\omega-c_i|^2$</p>
+<h4 id="初始化聚类中心"><a href="#初始化聚类中心" class="headerlink" title="初始化聚类中心"></a>初始化聚类中心</h4><p>实验了三种中心初始化方法，随机、基于概率密度、线性</p>
+<p>由于线性初始化能囊括所有范围的值，在参数中占少数的较大的参数对于模型的整体性能影响至关重要，随机或基于概率的中心初始化对于这些少量的大参数“照顾步骤”， 因此线性初始化效果最好。</p>
+<p><img src="3.JPG" alt="3"></p>
+<h4 id="哈夫曼编码"><a href="#哈夫曼编码" class="headerlink" title="哈夫曼编码"></a>哈夫曼编码</h4><p>常用在无损压缩的最佳预编码，信息熵大的编码位数少，信息熵小的编码位数大。</p>
+<h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><p>4种网络，两类数据集，caffe框架。量化及参数共享是通过维护一个存储这共享的权重的’codebook’结构实现的。哈夫曼编码在所有训练过程完成后进行。</p>
+<p>实验结果如下</p>
+<p><img src="4.JPG" alt="4"></p>
+<p>在AlexNet上的实验结果</p>
+<p><img src="5.JPG" alt="5"></p>
+<h3 id="结果讨论"><a href="#结果讨论" class="headerlink" title="结果讨论"></a>结果讨论</h3><p>和其他方法相比较，pruning+quantization的组合效果更好，比他们单打独斗效果更好。</p>
+<p><img src="6.JPG" alt="6"></p>
+<ul>
+<li>在硬件上的加速及功耗效率</li>
+</ul>
+<p><img src="7.jpg" alt></p>
+<p><img src="8.jpg" alt></p>
+<ul>
+<li>权重、索引(index)及 codebook所占比重</li>
+</ul>
+<p><img src="9.jpg" alt></p>
+<ul>
+<li>与其他论文中的结果比较</li>
+</ul>
+<p><img src="10.jpg" alt></p>
 
     </div>
 
@@ -391,13 +416,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/model-compress-quantization/" rel="tag"># model compress quantization</a>
+            <a href="/tags/deep-compression/" rel="tag"># deep compression</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/21/Regularization概述/" rel="next" title="Regularization概述">
-                <i class="fa fa-chevron-left"></i> Regularization概述
+              <a href="/2020/02/23/用Typora写Markdown数学公式/" rel="next" title="用Typora写Markdown数学公式">
+                <i class="fa fa-chevron-left"></i> 用Typora写Markdown数学公式
               </a>
             
           </div>
@@ -405,10 +430,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/21/TensorFlow基础/" rel="prev" title="TensorFlow基础">
-                TensorFlow基础 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -466,7 +487,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -489,7 +510,9 @@
         
           
         
-        <span class="site-state-item-count">6</span>
+          
+        
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
@@ -544,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#练一下插入数学公式，文章底部引用"><span class="nav-number">1.</span> <span class="nav-text">练一下插入数学公式，文章底部引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动机：overall-efficiency"><span class="nav-number">2.</span> <span class="nav-text">动机：overall efficiency</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Integer-vs-FP32"><span class="nav-number">3.</span> <span class="nav-text">Integer vs. FP32</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免溢出"><span class="nav-number">4.</span> <span class="nav-text">避免溢出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INT8量化"><span class="nav-number">5.</span> <span class="nav-text">INT8量化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#压缩、量化与编码"><span class="nav-number">1.</span> <span class="nav-text">压缩、量化与编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trained-Quantization-and-weight-sharing"><span class="nav-number">1.2.</span> <span class="nav-text">Trained Quantization and weight sharing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#权值共享"><span class="nav-number">1.2.1.</span> <span class="nav-text">权值共享</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化聚类中心"><span class="nav-number">1.2.2.</span> <span class="nav-text">初始化聚类中心</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哈夫曼编码"><span class="nav-number">1.2.3.</span> <span class="nav-text">哈夫曼编码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验结果"><span class="nav-number">1.3.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果讨论"><span class="nav-number">1.4.</span> <span class="nav-text">结果讨论</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -579,12 +602,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">12k</span>
+    <span title="站点总字数">14k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">11 分钟</span>
+    <span title="站点阅读时长">12 分钟</span>
 </div>
 
 <div class="powered-by">

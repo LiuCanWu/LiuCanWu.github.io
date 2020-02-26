@@ -59,20 +59,20 @@
   };
 </script>
 
-  <meta name="description" content="TensorFlow支持三种类型的张量 常量：为值不可改变的张量(存储在计算图的定义中，是占用内存的) 变量：当一个值在会话中需要更新时，使用变量来表示。变量在使用前需要被显示初始化。 占位符：用于将值输入到TensorFlow的图中，可以和feed_dict一起使用来输入数据。在训练神经网络时，通常用于提供新的训练样本。且在运行计算图时，可以为占位符赋值。故在构建一个计算图时不需要真正的输">
+  <meta name="description" content="TensorFlow支持三种类型的张量 常量：为值不可改变的张量(存储在计算图的定义中，是占用内存的) 变量：当一个值在会话中需要更新时，使用变量来表示。变量在使用前需要被显示初始化。 占位符：用于将值输入到TensorFlow的图中，可以和feed_dict一起使用来输入数据。在训练神经网络时，通常用于提供新的训练样本。且在运行计算图时，可以为占位符赋值。故在构建一个计算图时不需要真正的输入">
 <meta name="keywords" content="TensorFlow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow基础">
 <meta property="og:url" content="https://LiuCanWu.github.io/2020/02/21/TensorFlow基础/index.html">
 <meta property="og:site_name" content="劉Yang の Blog">
-<meta property="og:description" content="TensorFlow支持三种类型的张量 常量：为值不可改变的张量(存储在计算图的定义中，是占用内存的) 变量：当一个值在会话中需要更新时，使用变量来表示。变量在使用前需要被显示初始化。 占位符：用于将值输入到TensorFlow的图中，可以和feed_dict一起使用来输入数据。在训练神经网络时，通常用于提供新的训练样本。且在运行计算图时，可以为占位符赋值。故在构建一个计算图时不需要真正的输">
+<meta property="og:description" content="TensorFlow支持三种类型的张量 常量：为值不可改变的张量(存储在计算图的定义中，是占用内存的) 变量：当一个值在会话中需要更新时，使用变量来表示。变量在使用前需要被显示初始化。 占位符：用于将值输入到TensorFlow的图中，可以和feed_dict一起使用来输入数据。在训练神经网络时，通常用于提供新的训练样本。且在运行计算图时，可以为占位符赋值。故在构建一个计算图时不需要真正的输入">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://liucanwu.github.io/2020/02/21/TensorFlow基础/1.JPG">
 <meta property="og:image" content="https://liucanwu.github.io/2020/02/21/TensorFlow基础/2.JPG">
-<meta property="og:updated_time" content="2020-02-22T15:02:14.305Z">
+<meta property="og:updated_time" content="2020-02-25T14:51:54.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow基础">
-<meta name="twitter:description" content="TensorFlow支持三种类型的张量 常量：为值不可改变的张量(存储在计算图的定义中，是占用内存的) 变量：当一个值在会话中需要更新时，使用变量来表示。变量在使用前需要被显示初始化。 占位符：用于将值输入到TensorFlow的图中，可以和feed_dict一起使用来输入数据。在训练神经网络时，通常用于提供新的训练样本。且在运行计算图时，可以为占位符赋值。故在构建一个计算图时不需要真正的输">
+<meta name="twitter:description" content="TensorFlow支持三种类型的张量 常量：为值不可改变的张量(存储在计算图的定义中，是占用内存的) 变量：当一个值在会话中需要更新时，使用变量来表示。变量在使用前需要被显示初始化。 占位符：用于将值输入到TensorFlow的图中，可以和feed_dict一起使用来输入数据。在训练神经网络时，通常用于提供新的训练样本。且在运行计算图时，可以为占位符赋值。故在构建一个计算图时不需要真正的输入">
 <meta name="twitter:image" content="https://liucanwu.github.io/2020/02/21/TensorFlow基础/1.JPG">
   <link rel="alternate" href="/atom.xml" title="劉Yang の Blog" type="application/atom+xml">
   <link rel="canonical" href="https://LiuCanWu.github.io/2020/02/21/TensorFlow基础/">
@@ -297,7 +297,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-22 23:02:14" itemprop="dateModified" datetime="2020-02-22T23:02:14+08:00">2020-02-22</time>
+                <time title="修改时间：2020-02-25 22:51:54" itemprop="dateModified" datetime="2020-02-25T22:51:54+08:00">2020-02-25</time>
               </span>
             
           
@@ -328,7 +328,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">660</span>
+              <span title="本文字数">953</span>
             </span>
           
             <span class="post-meta-item">
@@ -352,7 +352,6 @@
 
       
         <a id="more"></a>
-
 <ul>
 <li>TensorFlow支持三种类型的张量<ol>
 <li>常量：为值不可改变的张量(存储在计算图的定义中，是占用内存的)</li>
@@ -375,12 +374,24 @@
 <ul>
 <li>run函数原型：<code>run(fetches,feed_dict=None,options=None,run_metadata)</code> ,其中运算结果在fetches中提取，为了得到fetches的结果所需的变量由<code>feed_dict</code> 提供。</li>
 </ul>
-<h2 id="如何指定CPU或GPU操作"><a href="#如何指定CPU或GPU操作" class="headerlink" title="如何指定CPU或GPU操作"></a>如何指定CPU或GPU操作</h2><h2 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h2><p>在 TensorFlow 中可以通过三种方式读取数据：</p>
+<h3 id="如何指定CPU或GPU操作"><a href="#如何指定CPU或GPU操作" class="headerlink" title="如何指定CPU或GPU操作"></a>如何指定CPU或GPU操作</h3><h3 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h3><p>在 TensorFlow 中可以通过三种方式读取数据：</p>
 <ol>
 <li>通过feed_dict传递数据；</li>
 <li>从文件中读取数据；</li>
 <li>使用预加载的数据；</li>
 </ol>
+<ul>
+<li>在进行多元线性回归时，由于每个特征具有不同的值范围，归一化变得至关重要。</li>
+<li>还可以使用 tf.summary.histogram 可视化梯度、权重或<strong>特定层的输出分布</strong>：</li>
+</ul>
+<blockquote>
+<p><strong>激活函数的作用</strong></p>
+<p>每个神经元都必须有激活函数。它们为神经元提供了模拟复杂非线性数据集所必需的非线性特性。该函数取所有输入的加权和，进而生成一个输出信号。你可以把它看作输入和输出之间的转换。使用适当的激活函数，可以将输出值限定在一个定义的范围内。</p>
+</blockquote>
+<h3 id="tf-一系列方法学习"><a href="#tf-一系列方法学习" class="headerlink" title="tf.(一系列方法学习)"></a>tf.(一系列方法学习)</h3><ul>
+<li>tf.argmax(input, axis):根据axis的不同返回每行或每列最大值的索引。</li>
+<li>tf.cast(x, dtype, name=None): 进行张量数据类型转换</li>
+</ul>
 
     </div>
 
@@ -397,7 +408,7 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/21/Quantization/" rel="next" title="Quantization">
+              <a href="/2020/02/21/Quantization概述/" rel="next" title="Quantization">
                 <i class="fa fa-chevron-left"></i> Quantization
               </a>
             
@@ -467,7 +478,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -490,7 +501,9 @@
         
           
         
-        <span class="site-state-item-count">6</span>
+          
+        
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
@@ -545,7 +558,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何指定CPU或GPU操作"><span class="nav-number">1.</span> <span class="nav-text">如何指定CPU或GPU操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读取数据"><span class="nav-number">2.</span> <span class="nav-text">读取数据</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何指定CPU或GPU操作"><span class="nav-number">1.</span> <span class="nav-text">如何指定CPU或GPU操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读取数据"><span class="nav-number">2.</span> <span class="nav-text">读取数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-一系列方法学习"><span class="nav-number">3.</span> <span class="nav-text">tf.(一系列方法学习)</span></a></li></ol></div>
             
 
           </div>
@@ -580,12 +593,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">10k</span>
+    <span title="站点总字数">14k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">9 分钟</span>
+    <span title="站点阅读时长">12 分钟</span>
 </div>
 
 <div class="powered-by">

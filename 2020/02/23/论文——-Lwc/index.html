@@ -59,13 +59,13 @@
   };
 </script>
 
-  <meta name="description" content="Learning both Weights and Connections for Effificient Neural Networks 摘要为了传统神经网络运行时所需的存储及计算资源，将层间的神经元的连接权重依据幅度大小排序，在不影响精度的情况下，去除掉那些冗余的不重要的连接。剪枝过程分三步走–&amp;gt; train-prune-retrain. 测试结果，AlexNet在ImafeNet上">
+  <meta name="description" content="Learning both Weights and Connections for Effificient Neural Networks Hexo中的LaTex公式渲染问题查一下摘要为了传统神经网络运行时所需的存储及计算资源，将层间的神经元的连接权重依据幅度大小排序，在不影响精度的情况下，去除掉那些冗余的不重要的连接。剪枝过程分三步走–&amp;gt; train-prune-retrain. 测试">
 <meta name="keywords" content="pruning 读论文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文——_Lwc">
 <meta property="og:url" content="https://LiuCanWu.github.io/2020/02/23/论文——-Lwc/index.html">
 <meta property="og:site_name" content="劉Yang の Blog">
-<meta property="og:description" content="Learning both Weights and Connections for Effificient Neural Networks 摘要为了传统神经网络运行时所需的存储及计算资源，将层间的神经元的连接权重依据幅度大小排序，在不影响精度的情况下，去除掉那些冗余的不重要的连接。剪枝过程分三步走–&amp;gt; train-prune-retrain. 测试结果，AlexNet在ImafeNet上">
+<meta property="og:description" content="Learning both Weights and Connections for Effificient Neural Networks Hexo中的LaTex公式渲染问题查一下摘要为了传统神经网络运行时所需的存储及计算资源，将层间的神经元的连接权重依据幅度大小排序，在不影响精度的情况下，去除掉那些冗余的不重要的连接。剪枝过程分三步走–&amp;gt; train-prune-retrain. 测试">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/1.JPG">
 <meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/2.JPG">
@@ -74,10 +74,15 @@
 <meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/5.JPG">
 <meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/6.JPG">
 <meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/7.JPG">
-<meta property="og:updated_time" content="2020-02-23T14:46:09.483Z">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/8.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/9.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/before.PNG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/pruning.PNG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/tuning.png">
+<meta property="og:updated_time" content="2020-02-25T08:02:21.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文——_Lwc">
-<meta name="twitter:description" content="Learning both Weights and Connections for Effificient Neural Networks 摘要为了传统神经网络运行时所需的存储及计算资源，将层间的神经元的连接权重依据幅度大小排序，在不影响精度的情况下，去除掉那些冗余的不重要的连接。剪枝过程分三步走–&amp;gt; train-prune-retrain. 测试结果，AlexNet在ImafeNet上">
+<meta name="twitter:description" content="Learning both Weights and Connections for Effificient Neural Networks Hexo中的LaTex公式渲染问题查一下摘要为了传统神经网络运行时所需的存储及计算资源，将层间的神经元的连接权重依据幅度大小排序，在不影响精度的情况下，去除掉那些冗余的不重要的连接。剪枝过程分三步走–&amp;gt; train-prune-retrain. 测试">
 <meta name="twitter:image" content="https://liucanwu.github.io/2020/02/23/论文——-Lwc/1.JPG">
   <link rel="alternate" href="/atom.xml" title="劉Yang の Blog" type="application/atom+xml">
   <link rel="canonical" href="https://LiuCanWu.github.io/2020/02/23/论文——-Lwc/">
@@ -289,11 +294,21 @@
                 
               
 
-              <time title="创建时间：2020-02-23 14:41:44 / 修改时间：22:46:09" itemprop="dateCreated datePublished" datetime="2020-02-23T14:41:44+08:00">2020-02-23</time>
+              <time title="创建时间：2020-02-23 14:41:44" itemprop="dateCreated datePublished" datetime="2020-02-23T14:41:44+08:00">2020-02-23</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-25 16:02:21" itemprop="dateModified" datetime="2020-02-25T16:02:21+08:00">2020-02-25</time>
+              </span>
             
           
 
@@ -323,7 +338,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">1.3k</span>
+              <span title="本文字数">1.7k</span>
             </span>
           
             <span class="post-meta-item">
@@ -333,7 +348,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -349,7 +364,7 @@
         <a id="more"></a>
 
 <p><a href="https://arxiv.org/abs/1506.02626" target="_blank" rel="noopener"><strong>Learning both Weights and Connections for Effificient Neural Networks</strong></a></p>
-<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>为了传统神经网络运行时所需的存储及计算资源，将层间的神经元的连接权重依据幅度大小排序，在不影响精度的情况下，去除掉那些冗余的不重要的连接。剪枝过程分三步走–&gt; train-prune-retrain. 测试结果，AlexNet在ImafeNet上在没有带来精度损失的条件下参数减少了9倍，VGG-16减少了13倍。</p>
+<h4 id="Hexo中的LaTex公式渲染问题查一下"><a href="#Hexo中的LaTex公式渲染问题查一下" class="headerlink" title="Hexo中的LaTex公式渲染问题查一下"></a>Hexo中的LaTex公式渲染问题查一下</h4><h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>为了传统神经网络运行时所需的存储及计算资源，将层间的神经元的连接权重依据幅度大小排序，在不影响精度的情况下，去除掉那些冗余的不重要的连接。剪枝过程分三步走–&gt; train-prune-retrain. 测试结果，AlexNet在ImafeNet上在没有带来精度损失的条件下参数减少了9倍，VGG-16减少了13倍。</p>
 <table>
 <thead>
 <tr>
@@ -357,6 +372,7 @@
 <th>LeNet-5</th>
 <th>AlexNet</th>
 <th>Deepface</th>
+<th>VGG16</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -364,6 +380,7 @@
 <td>&lt;1M</td>
 <td>60M</td>
 <td>120M</td>
+<td>140M</td>
 </tr>
 </tbody></table>
 <ul>
@@ -402,6 +419,19 @@
 </ul>
 <p><img src="6.JPG" alt="vgg"></p>
 <p><img src="7.JPG" alt="vgg"></p>
+<ul>
+<li>有趣的发现</li>
+</ul>
+<p>作者发现神经网络剪枝能够发现-visual attention 的区域，如下图所示，是LeNet-300-100这个网络第一个全连接层的激活值的输出，共有28条带，每个带宽28.对应于输入的28x28的像素。由于手写的数字大多集中于图像中间，故这副图的中间区域更亮，两侧被剪枝的幅度更大。</p>
+<p><img src="8.JPG" alt="attention"></p>
+<h3 id="结果讨论"><a href="#结果讨论" class="headerlink" title="结果讨论"></a>结果讨论</h3><p>如下图所示，参数被剪掉的越多，精度损失的越厉害。同时retrain效果显著。</p>
+<p>在有retrain的情况下，L2正则化效果比L1正则化效果更好。L1更适合retrain之前的迫零，L2更适合retrain过程。</p>
+<p><img src="9.JPG" alt="regulation"></p>
+<p>其中剪枝对于网络中权重参数数量，及大小分布的影响如下图所示</p>
+<p><img src="before.PNG" alt></p>
+<p><img src="pruning.PNG" alt></p>
+<p><img src="tuning.png" alt></p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>剪枝灵感来源于，哺乳动物大脑的生长机理。同时对全连接层及卷积层进行剪枝，剪枝效果在9x到13x之间。推动了大型神经网络在移动端的部署。</p>
 
     </div>
 
@@ -488,7 +518,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -511,7 +541,9 @@
         
           
         
-        <span class="site-state-item-count">6</span>
+          
+        
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
@@ -566,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最近进展"><span class="nav-number">2.</span> <span class="nav-text">最近进展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#剪枝过程"><span class="nav-number">3.</span> <span class="nav-text">剪枝过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正则化"><span class="nav-number">3.1.</span> <span class="nav-text">正则化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dropout率调整"><span class="nav-number">3.2.</span> <span class="nav-text">Dropout率调整</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部剪枝及参数联合适应"><span class="nav-number">3.3.</span> <span class="nav-text">局部剪枝及参数联合适应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#迭代剪枝"><span class="nav-number">3.4.</span> <span class="nav-text">迭代剪枝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#剪掉神经元"><span class="nav-number">3.5.</span> <span class="nav-text">剪掉神经元</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验验证"><span class="nav-number">4.</span> <span class="nav-text">实验验证</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo中的LaTex公式渲染问题查一下"><span class="nav-number">1.</span> <span class="nav-text">Hexo中的LaTex公式渲染问题查一下</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#摘要"><span class="nav-number"></span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最近进展"><span class="nav-number"></span> <span class="nav-text">最近进展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#剪枝过程"><span class="nav-number"></span> <span class="nav-text">剪枝过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正则化"><span class="nav-number">1.</span> <span class="nav-text">正则化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dropout率调整"><span class="nav-number">2.</span> <span class="nav-text">Dropout率调整</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部剪枝及参数联合适应"><span class="nav-number">3.</span> <span class="nav-text">局部剪枝及参数联合适应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#迭代剪枝"><span class="nav-number">4.</span> <span class="nav-text">迭代剪枝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#剪掉神经元"><span class="nav-number">5.</span> <span class="nav-text">剪掉神经元</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验验证"><span class="nav-number"></span> <span class="nav-text">实验验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果讨论"><span class="nav-number"></span> <span class="nav-text">结果讨论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number"></span> <span class="nav-text">结论</span></a></div>
             
 
           </div>
@@ -601,12 +633,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">10k</span>
+    <span title="站点总字数">14k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">9 分钟</span>
+    <span title="站点阅读时长">12 分钟</span>
 </div>
 
 <div class="powered-by">

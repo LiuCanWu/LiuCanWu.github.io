@@ -59,20 +59,20 @@
   };
 </script>
 
-  <meta name="description" content="剪枝对神经网络的权重及激活值进行稀疏化的常见方法就是剪枝。剪枝过程中满足剪枝标准的权重会被赋值为零，确保这些被“剪掉” 的元素不会参与反向传播过程。 神经网络中的权重，偏置，激活值都可以视为被剪的对象。然而偏置的数量少且对每一层的输出影响较大，故没必要剪。 稀疏度(sparsity)稀疏度用来度量向量中零有多少，若向量中大多数元素都是零，可视为稀疏的。L0正则函数常被用来测量一向量中零元素的多">
+  <meta name="description" content="剪枝对神经网络的权重及激活值进行稀疏化的常见方法就是剪枝。剪枝过程中满足剪枝标准的权重会被赋值为零，确保这些被“剪掉” 的元素不会参与反向传播过程。 神经网络中的权重，偏置，激活值都可以视为被剪的对象。然而偏置的数量少且对每一层的输出影响较大，故没必要剪。 稀疏度(sparsity)稀疏度用来度量向量中零有多少，若向量中大多数元素都是零，可视为稀疏的。L0正则函数常被用来测量一向量中零元素的多少">
 <meta name="keywords" content="model pruning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pruning概述">
 <meta property="og:url" content="https://LiuCanWu.github.io/2020/02/20/Pruning概述/index.html">
 <meta property="og:site_name" content="劉Yang の Blog">
-<meta property="og:description" content="剪枝对神经网络的权重及激活值进行稀疏化的常见方法就是剪枝。剪枝过程中满足剪枝标准的权重会被赋值为零，确保这些被“剪掉” 的元素不会参与反向传播过程。 神经网络中的权重，偏置，激活值都可以视为被剪的对象。然而偏置的数量少且对每一层的输出影响较大，故没必要剪。 稀疏度(sparsity)稀疏度用来度量向量中零有多少，若向量中大多数元素都是零，可视为稀疏的。L0正则函数常被用来测量一向量中零元素的多">
+<meta property="og:description" content="剪枝对神经网络的权重及激活值进行稀疏化的常见方法就是剪枝。剪枝过程中满足剪枝标准的权重会被赋值为零，确保这些被“剪掉” 的元素不会参与反向传播过程。 神经网络中的权重，偏置，激活值都可以视为被剪的对象。然而偏置的数量少且对每一层的输出影响较大，故没必要剪。 稀疏度(sparsity)稀疏度用来度量向量中零有多少，若向量中大多数元素都是零，可视为稀疏的。L0正则函数常被用来测量一向量中零元素的多少">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://liucanwu.github.io/2020/02/20/Pruning概述/1.png">
 <meta property="og:image" content="https://liucanwu.github.io/2020/02/20/Pruning概述/2.PNG">
 <meta property="og:updated_time" content="2020-02-21T08:08:45.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pruning概述">
-<meta name="twitter:description" content="剪枝对神经网络的权重及激活值进行稀疏化的常见方法就是剪枝。剪枝过程中满足剪枝标准的权重会被赋值为零，确保这些被“剪掉” 的元素不会参与反向传播过程。 神经网络中的权重，偏置，激活值都可以视为被剪的对象。然而偏置的数量少且对每一层的输出影响较大，故没必要剪。 稀疏度(sparsity)稀疏度用来度量向量中零有多少，若向量中大多数元素都是零，可视为稀疏的。L0正则函数常被用来测量一向量中零元素的多">
+<meta name="twitter:description" content="剪枝对神经网络的权重及激活值进行稀疏化的常见方法就是剪枝。剪枝过程中满足剪枝标准的权重会被赋值为零，确保这些被“剪掉” 的元素不会参与反向传播过程。 神经网络中的权重，偏置，激活值都可以视为被剪的对象。然而偏置的数量少且对每一层的输出影响较大，故没必要剪。 稀疏度(sparsity)稀疏度用来度量向量中零有多少，若向量中大多数元素都是零，可视为稀疏的。L0正则函数常被用来测量一向量中零元素的多少">
 <meta name="twitter:image" content="https://liucanwu.github.io/2020/02/20/Pruning概述/1.png">
   <link rel="alternate" href="/atom.xml" title="劉Yang の Blog" type="application/atom+xml">
   <link rel="canonical" href="https://LiuCanWu.github.io/2020/02/20/Pruning概述/">
@@ -352,7 +352,6 @@
 
       
         <a id="more"></a>
-
 <h2 id="剪枝"><a href="#剪枝" class="headerlink" title="剪枝"></a>剪枝</h2><p>对神经网络的权重及激活值进行稀疏化的常见方法就是剪枝。剪枝过程中满足剪枝标准的权重会被赋值为零，确保这些被“剪掉” 的元素不会参与反向传播过程。</p>
 <p>神经网络中的权重，偏置，激活值都可以视为被剪的对象。然而偏置的数量少且对每一层的输出影响较大，故没必要剪。</p>
 <h2 id="稀疏度-sparsity"><a href="#稀疏度-sparsity" class="headerlink" title="稀疏度(sparsity)"></a>稀疏度(sparsity)</h2><p>稀疏度用来度量向量中零有多少，若向量中大多数元素都是零，可视为稀疏的。L0正则函数常被用来测量一向量中零元素的多少,既</p>
@@ -360,11 +359,11 @@
 <p>当且仅当某一项为零时它对整体的贡献才为零。</p>
 <p>在distiller这个库中可以使用<code>distiller.sparity</code> 来获取pytorch向量的稀疏度。</p>
 <h2 id="什么是权重剪枝-weights-pruning"><a href="#什么是权重剪枝-weights-pruning" class="headerlink" title="什么是权重剪枝(weights pruning)"></a>什么是权重剪枝(weights pruning)</h2><p>权重或模型剪枝是网络中权重稀疏度的一种方法，通常情况下parameters指的是权重及偏置向量，因为相较于权重，模型中的偏置变量很少，不值得考虑。</p>
-<p>剪枝需要选择一个标准来决定‘剪掉’谁–剪枝标准。最常见的剪枝标准就是绝对值。将某一权重变量的绝对值与选定的阈值比较，若小于阈值则被值为零(被剪掉),在distiller库中可以使用<code>distiller.MagnitudeParameterPruner</code> 类。根据就是，绝对值小的权重对于最终的输出结果贡献不大，故不太重要可以被减去。</p>
+<p>剪枝需要选择一个标准来决定‘剪掉’谁—剪枝标准。最常见的剪枝标准就是绝对值。将某一权重变量的绝对值与选定的阈值比较，若小于阈值则被值为零(被剪掉),在distiller库中可以使用<code>distiller.MagnitudeParameterPruner</code> 类。根据就是，绝对值小的权重对于最终的输出结果贡献不大，故不太重要可以被减去。</p>
 <p>模型可以被剪枝的另外一个原因是，模型通常是过参的，有很多冗余的参数及特征，因此一部分冗余可以通过将权重设为零被移除。</p>
 <p>考虑模型剪枝的另外一个角度是，寻找一组包含尽可能多的零的权重，并且相较于原模型的精度仍可接受。可以想象参数空间的维度非常高，在这个很高维的解周围可能存在某些稀疏解，我们就是想找出这些稀疏解。</p>
-<h2 id="剪枝步骤-schedule"><a href="#剪枝步骤-schedule" class="headerlink" title="剪枝步骤(schedule)"></a>剪枝步骤(schedule)</h2><p>最直接的方式就是对训练过的模型剪一次，也称’one-shot pruning’ 在[ <a href="https://arxiv.org/abs/1506.02626" target="_blank" rel="noopener">Learning both Weights and Connections for Efficient Neural Networks</a>这篇文章中，韩松等人提到”free lunch“的效果，–在没有retrain和损失精度的条件下，可以将connections降至原来的1/2.</p>
-<p>同时指出，在prunning之后再retrain可以得到更好的结果，也就是循环剪枝(iterative pruning),retrain的步骤称为fine-tuning。每回合的剪枝标准，回合数，剪枝频率，剪掉谁–&gt;统称为剪枝规划(pruning schedule)。循环剪枝也就是根据criteria去除掉那些不重要的元素，然后通过retrain调整剩余的权重，将模型精度恢复到原模型的水平。</p>
+<h2 id="剪枝步骤-schedule"><a href="#剪枝步骤-schedule" class="headerlink" title="剪枝步骤(schedule)"></a>剪枝步骤(schedule)</h2><p>最直接的方式就是对训练过的模型剪一次，也称’one-shot pruning’ 在[ <a href="https://arxiv.org/abs/1506.02626" target="_blank" rel="noopener">Learning both Weights and Connections for Efficient Neural Networks</a>这篇文章中，韩松等人提到”free lunch“的效果，—在没有retrain和损失精度的条件下，可以将connections降至原来的1/2.</p>
+<p>同时指出，在prunning之后再retrain可以得到更好的结果，也就是循环剪枝(iterative pruning),retrain的步骤称为fine-tuning。每回合的剪枝标准，回合数，剪枝频率，剪掉谁—&gt;统称为剪枝规划(pruning schedule)。循环剪枝也就是根据criteria去除掉那些不重要的元素，然后通过retrain调整剩余的权重，将模型精度恢复到原模型的水平。</p>
 <p>何时停止剪枝，也根据具体的剪枝算法写在了schedule中。比如要实现某一目标稀疏度，当达到此稀疏度将会停止剪枝。或这根据所需的计算量等其他条件。</p>
 <h2 id="剪枝粒度-granularity"><a href="#剪枝粒度-granularity" class="headerlink" title="剪枝粒度(granularity)"></a>剪枝粒度(granularity)</h2><p>将单个权重作为剪枝单位称为element-wise pruning， 或fine-grained pruning。</p>
 <p>粗粒度的剪枝通常为结构性剪枝，如通道剪枝(channel), 核(filter).</p>
@@ -461,7 +460,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -484,7 +483,9 @@
         
           
         
-        <span class="site-state-item-count">6</span>
+          
+        
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
@@ -574,12 +575,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">10k</span>
+    <span title="站点总字数">14k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">9 分钟</span>
+    <span title="站点阅读时长">12 分钟</span>
 </div>
 
 <div class="powered-by">
