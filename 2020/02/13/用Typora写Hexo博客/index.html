@@ -136,7 +136,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">风月同天</p>
+        <p class="site-subtitle">道阻且长，行则将至</p>
       
   </div>
 
@@ -327,7 +327,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">787</span>
+              <span title="本文字数">816</span>
             </span>
           
             <span class="post-meta-item">
@@ -352,17 +352,18 @@
       
         <p><strong>Markdown 的一些基本语法</strong> </p>
 <a id="more"></a>
+
 <p><em>斜体</em></p>
 <p><strong>粗体</strong>   <strong>粗体</strong></p>
-<p><strong><em>分割线</em></strong>   ——&gt; 三个星号</p>
+<p><strong><em>分割线</em></strong>   —-&gt; 三个星号</p>
 <hr>
 <hr>
-<p><strong>删除线</strong> —-&gt; 文字两端加个~</p>
+<p><strong>删除线</strong> —&gt; 文字两端加个~</p>
 <p><del>删除</del></p>
-<p><strong>下划线 —&gt;</strong>  两端加 <u> </u></p>
+<p><strong>下划线 –&gt;</strong>  两端加 <u> </u></p>
 <p><u>带下划线文本</u></p>
 <p><strong>注脚</strong></p>
-<p><sup><a href="#fn_ 注脚内容 " id="reffn_ 注脚内容 "> 注脚内容 </a></sup></p>
+<p>[^ 注脚内容 ]</p>
 <h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><ul>
 <li>一： 无序列表使用（*、+、或 -）</li>
 <li><ul>
@@ -388,6 +389,8 @@
 <p>这是第三级</p>
 </blockquote>
 </blockquote>
+</blockquote>
+<blockquote>
 <p>在区块中使用列表</p>
 <blockquote>
 <ol>
@@ -409,7 +412,7 @@
 </li>
 </ul>
 <h2 id="代码格式"><a href="#代码格式" class="headerlink" title="代码格式"></a>代码格式</h2><ul>
-<li><p>单个函数使用(<code>` </code> )  例如:    <code>print()</code> 函数</p>
+<li><p>单个函数使用(`` <code>)  例如:</code> print()` 函数</p>
 </li>
 <li><p><strong>代码区块:</strong>    使用四个空格, 或者一个Tab键 ,或使用` <figure class="highlight plain"><figcaption><span>对代码段包裹(可以指定语言格式)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">​	</span><br><span class="line"></span><br><span class="line">```python </span><br><span class="line">import tensorflow as tf</span><br><span class="line">from tensorflow.python import keras</span><br><span class="line">from tensorflow_model_optimization.python.core.clustering.keras import cluster</span><br></pre></td></tr></table></figure></p>
 </li>
@@ -433,36 +436,33 @@
 <li>目前Markdown还无法指定图片的高度与宽度, 可以使用普通的<img> 标签</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=<span class="string">"http://static.runoob.com/images/runoob-logo.png"</span> width=<span class="string">"50%"</span>&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="http://static.runoob.com/images/runoob-logo.png" width="50%"></p>
+
+<img src="http://static.runoob.com/images/runoob-logo.png" width="50%">
+
+
+
 <h2 id="Markdown-表格"><a href="#Markdown-表格" class="headerlink" title="Markdown 表格"></a>Markdown 表格</h2><blockquote>
 <p>使用<code>|</code> 来分割不同的单元格, 使用<code>-</code>  来分割表头与其他行</p>
 </blockquote>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:left">1</th>
+<th align="left">1</th>
 <th>2</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left"></td>
+<tbody><tr>
+<td align="left"></td>
+<td></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h2 id="高级技巧"><a href="#高级技巧" class="headerlink" title="高级技巧"></a>高级技巧</h2><ul>
 <li>LaTex 公式, 需要用 $$ 对其进行包裹</li>
 </ul>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125; </span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; <span class="number">0</span> \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; <span class="number">0</span> \\</span><br><span class="line">\end&#123;vmatrix&#125;</span><br><span class="line">$&#123;$tep1&#125;&#123;\style&#123;visibility:hidden&#125;&#123;(x+<span class="number">1</span>)(x+<span class="number">1</span>)&#125;&#125;</span><br></pre></td></tr></table></figure>
-<script type="math/tex; mode=display">
-\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} 
-\mathbf{i} & \mathbf{j} & \mathbf{k} \\
-\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\
-\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\
-\end{vmatrix}
-${$tep1}{\style{visibility:hidden}{(x+1)(x+1)}}</script><h2 id="绘制流程图-时序图-甘特图"><a href="#绘制流程图-时序图-甘特图" class="headerlink" title="绘制流程图, 时序图, 甘特图"></a>绘制流程图, 时序图, 甘特图</h2><ul>
+
+<p>$$<br>\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \<br>\frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \<br>\frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \<br>\end{vmatrix}<br>${$tep1}{\style{visibility:hidden}{(x+1)(x+1)}}<br>$$</p>
+<h2 id="绘制流程图-时序图-甘特图"><a href="#绘制流程图-时序图-甘特图" class="headerlink" title="绘制流程图, 时序图, 甘特图"></a>绘制流程图, 时序图, 甘特图</h2><ul>
 <li><p><strong>1 横向流程图</strong>  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[方形] --&gt;B(圆角)</span><br><span class="line">    B --&gt; C&#123;条件a&#125;</span><br><span class="line">    C --&gt;|a=1| D[结果1]</span><br><span class="line">    C --&gt;|a=2| E[结果2]</span><br><span class="line">    F[横向流程图]</span><br></pre></td></tr></table></figure>
 </li>
@@ -470,10 +470,14 @@ ${$tep1}{\style{visibility:hidden}{(x+1)(x+1)}}</script><h2 id="绘制流程图-
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A[方形] --&gt; B(圆角)</span><br><span class="line">    B --&gt; C&#123;条件a&#125;</span><br><span class="line">    C --&gt; |a=1| D[结果1]</span><br><span class="line">    C --&gt; |a=2| E[结果2]</span><br><span class="line">    F[竖向流程图]</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">graph TD</span><br><span class="line">A[方形] --&gt; B(圆角)</span><br><span class="line">    B --&gt; C&#123;条件a&#125;</span><br><span class="line">    C --&gt; |a=1| D[结果1]</span><br><span class="line">    C --&gt; |a=2| E[结果2]</span><br><span class="line">    F[竖向流程图]</span><br></pre></td></tr></table></figure>
+
 <p><strong>3. 甘特图</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    gantt</span><br><span class="line">    dateFormat  YYYY-MM-DD</span><br><span class="line">    title 软件开发甘特图</span><br><span class="line">    section 设计</span><br><span class="line">    需求                      :done,    des1, 2014-01-06,2014-01-08</span><br><span class="line">    原型                      :active,  des2, 2014-01-09, 3d</span><br><span class="line">    UI设计                     :         des3, after des2, 5d</span><br><span class="line">未来任务                     :         des4, after des3, 5d</span><br><span class="line">    section 开发</span><br><span class="line">    学习准备理解需求                      :crit, done, 2014-01-06,24h</span><br><span class="line">    设计框架                             :crit, done, after des2, 2d</span><br><span class="line">    开发                                 :crit, active, 3d</span><br><span class="line">    未来任务                              :crit, 5d</span><br><span class="line">    耍                                   :2d</span><br><span class="line">    section 测试</span><br><span class="line">    功能测试                              :active, a1, after des3, 3d</span><br><span class="line">    压力测试                               :after a1  , 20h</span><br><span class="line">    测试报告                               : 48h</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    gantt</span><br><span class="line">    dateFormat  YYYY-MM-DD</span><br><span class="line">    title 软件开发甘特图</span><br><span class="line">    section 设计</span><br><span class="line">    需求                      :done,    des1, 2014-01-06,2014-01-08</span><br><span class="line">    原型                      :active,  des2, 2014-01-09, 3d</span><br><span class="line">    UI设计                     :         des3, after des2, 5d</span><br><span class="line">未来任务                     :         des4, after des3, 5d</span><br><span class="line">    section 开发</span><br><span class="line">    学习准备理解需求                      :crit, done, 2014-01-06,24h</span><br><span class="line">    设计框架                             :crit, done, after des2, 2d</span><br><span class="line">    开发                                 :crit, active, 3d</span><br><span class="line">    未来任务                              :crit, 5d</span><br><span class="line">    耍                                   :2d</span><br><span class="line">    section 测试</span><br><span class="line">    功能测试                              :active, a1, after des3, 3d</span><br><span class="line">    压力测试                               :after a1  , 20h</span><br><span class="line">    测试报告                               : 48h</span><br></pre></td></tr></table></figure>
+
 
     </div>
 

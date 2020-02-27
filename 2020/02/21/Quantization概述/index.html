@@ -59,20 +59,20 @@
   };
 </script>
 
-  <meta name="description" content="量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表示INT8。当然，用更少的位数表示如4/2/1-bits表示，也在积极探索中。 练一下插入数学公式，文章底部引用动机：overall efficiency进行量化">
+  <meta name="description" content="量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表示INT8。当然，用更少的位数表示如4/2/1-bits表示，也在积极探索中。 练一下插入数学公式，文章底部引用动机：overall efficiency进行量">
 <meta name="keywords" content="model compress quantization">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Quantization">
 <meta property="og:url" content="https://LiuCanWu.github.io/2020/02/21/Quantization概述/index.html">
 <meta property="og:site_name" content="劉Yang の Blog">
-<meta property="og:description" content="量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表示INT8。当然，用更少的位数表示如4/2/1-bits表示，也在积极探索中。 练一下插入数学公式，文章底部引用动机：overall efficiency进行量化">
+<meta property="og:description" content="量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表示INT8。当然，用更少的位数表示如4/2/1-bits表示，也在积极探索中。 练一下插入数学公式，文章底部引用动机：overall efficiency进行量">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Quantization概述/1.JPG">
 <meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Quantization概述/2.JPG">
 <meta property="og:updated_time" content="2020-02-22T09:04:37.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Quantization">
-<meta name="twitter:description" content="量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表示INT8。当然，用更少的位数表示如4/2/1-bits表示，也在积极探索中。 练一下插入数学公式，文章底部引用动机：overall efficiency进行量化">
+<meta name="twitter:description" content="量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表示INT8。当然，用更少的位数表示如4/2/1-bits表示，也在积极探索中。 练一下插入数学公式，文章底部引用动机：overall efficiency进行量">
 <meta name="twitter:image" content="https://liucanwu.github.io/2020/02/21/Quantization概述/1.JPG">
   <link rel="alternate" href="/atom.xml" title="劉Yang の Blog" type="application/atom+xml">
   <link rel="canonical" href="https://LiuCanWu.github.io/2020/02/21/Quantization概述/">
@@ -137,7 +137,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">风月同天</p>
+        <p class="site-subtitle">道阻且长，行则将至</p>
       
   </div>
 
@@ -352,9 +352,9 @@
 
       
         <a id="more"></a>
+
 <p>量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表示INT8。当然，用更少的位数表示如4/2/1-bits表示，也在积极探索中。</p>
 <h2 id="练一下插入数学公式，文章底部引用"><a href="#练一下插入数学公式，文章底部引用" class="headerlink" title="练一下插入数学公式，文章底部引用"></a>练一下插入数学公式，文章底部引用</h2><h2 id="动机：overall-efficiency"><a href="#动机：overall-efficiency" class="headerlink" title="动机：overall efficiency"></a>动机：overall efficiency</h2><p>进行量化的显著优势是，能明显降低带宽与所用存储。如用INT8来表示权重与激活值相较与FP32表示能减少4倍带宽利用。此外，整形运算比浮点计算更快，存储空间及耗能更少。</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -363,8 +363,7 @@
 <th>Area Saving vs FP32</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Add</td>
 <td>30x</td>
 <td>116x</td>
@@ -374,9 +373,7 @@
 <td>18.5x</td>
 <td>27x</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>若用更少的位数量化，如二进制(-1,1)或三进制(-1,0,1).则卷积层与全连接层只需加减操作，完全不需要乘法。若激活值也用二进制表示，那加法也不需要了，只需要进行位操作<a href="https://nervanasystems.github.io/distiller/quantization.html#rastegari-et-al-2016" target="_blank" rel="noopener">Rastegari et al., 2016</a></p>
 <h2 id="Integer-vs-FP32"><a href="#Integer-vs-FP32" class="headerlink" title="Integer vs. FP32"></a>Integer vs. FP32</h2><p>数字格式主要有两个属性，1. 动态范围，指可表示的数的范围。2. 在动态范围内能够表示多少数值，决定了精度/分辨率。</p>
 <p>对于整形格式它的动态范围是<img src="1.JPG" alt="range">, n是位数，如INT8的范围是[-128, 127].对于FP32它的动态范围大约是<img src="2.JPG" alt="fprange">.可以看出FP32能够表示更多的值，这对于深度学习模型来说很好。位了解决动态范围窄的问题，通常会加入scale factor将模型中向量的动态范围映射到整形范围中。但精度低的问题依然没有解决。</p>

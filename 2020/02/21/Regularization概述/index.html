@@ -59,13 +59,13 @@
   };
 </script>
 
-  <meta name="description" content="正则化(regularization)在 Deep Learning这本书中，Goodfellow等人提到正则化 为：”为了降低泛化误差，而非训练误差，对学习算法的改动“ PyTorch的优化器中使用L2参数正则化来限制模型的容量(减小方差) 通常可写为：  更特殊则写为：  其中W是网络中权重参量的集合，是总的训练损失，是数据loss(如目标函数)。 λR是个标量，是正则的力度。用来平衡dat">
+  <meta name="description" content="正则化(regularization)在 Deep Learning这本书中，Goodfellow等人提到正则化 为：”为了降低泛化误差，而非训练误差，对学习算法的改动“ PyTorch的优化器中使用L2参数正则化来限制模型的容量(减小方差) 通常可写为：  更特殊则写为：  其中W是网络中权重参量的集合，是总的训练损失，是数据loss(如目标函数)。 λR是个标量，是正则的力度。用来平衡da">
 <meta name="keywords" content="model pruning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Regularization概述">
 <meta property="og:url" content="https://LiuCanWu.github.io/2020/02/21/Regularization概述/index.html">
 <meta property="og:site_name" content="劉Yang の Blog">
-<meta property="og:description" content="正则化(regularization)在 Deep Learning这本书中，Goodfellow等人提到正则化 为：”为了降低泛化误差，而非训练误差，对学习算法的改动“ PyTorch的优化器中使用L2参数正则化来限制模型的容量(减小方差) 通常可写为：  更特殊则写为：  其中W是网络中权重参量的集合，是总的训练损失，是数据loss(如目标函数)。 λR是个标量，是正则的力度。用来平衡dat">
+<meta property="og:description" content="正则化(regularization)在 Deep Learning这本书中，Goodfellow等人提到正则化 为：”为了降低泛化误差，而非训练误差，对学习算法的改动“ PyTorch的优化器中使用L2参数正则化来限制模型的容量(减小方差) 通常可写为：  更特殊则写为：  其中W是网络中权重参量的集合，是总的训练损失，是数据loss(如目标函数)。 λR是个标量，是正则的力度。用来平衡da">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/1.JPG">
 <meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/2.JPG">
@@ -79,7 +79,7 @@
 <meta property="og:updated_time" content="2020-02-21T13:27:59.862Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Regularization概述">
-<meta name="twitter:description" content="正则化(regularization)在 Deep Learning这本书中，Goodfellow等人提到正则化 为：”为了降低泛化误差，而非训练误差，对学习算法的改动“ PyTorch的优化器中使用L2参数正则化来限制模型的容量(减小方差) 通常可写为：  更特殊则写为：  其中W是网络中权重参量的集合，是总的训练损失，是数据loss(如目标函数)。 λR是个标量，是正则的力度。用来平衡dat">
+<meta name="twitter:description" content="正则化(regularization)在 Deep Learning这本书中，Goodfellow等人提到正则化 为：”为了降低泛化误差，而非训练误差，对学习算法的改动“ PyTorch的优化器中使用L2参数正则化来限制模型的容量(减小方差) 通常可写为：  更特殊则写为：  其中W是网络中权重参量的集合，是总的训练损失，是数据loss(如目标函数)。 λR是个标量，是正则的力度。用来平衡da">
 <meta name="twitter:image" content="https://liucanwu.github.io/2020/02/21/Regularization概述/1.JPG">
   <link rel="alternate" href="/atom.xml" title="劉Yang の Blog" type="application/atom+xml">
   <link rel="canonical" href="https://LiuCanWu.github.io/2020/02/21/Regularization概述/">
@@ -144,7 +144,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">风月同天</p>
+        <p class="site-subtitle">道阻且长，行则将至</p>
       
   </div>
 
@@ -349,6 +349,7 @@
 
       
         <a id="more"></a>
+
 <h2 id="正则化-regularization"><a href="#正则化-regularization" class="headerlink" title="正则化(regularization)"></a>正则化(regularization)</h2><p>在 <a href="https://nervanasystems.github.io/distiller/regularization.html#deep-learning" target="_blank" rel="noopener">Deep Learning</a>这本书中，Goodfellow等人提到正则化 为：”为了降低泛化误差，而非训练误差，对学习算法的改动“</p>
 <p>PyTorch的优化器中使用L2参数正则化来限制模型的容量(减小方差)</p>
 <p>通常可写为：</p>
