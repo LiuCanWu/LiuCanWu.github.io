@@ -59,23 +59,30 @@
   };
 </script>
 
-  <meta name="description" content="TensorFlow支持三种类型的张量 常量：为值不可改变的张量(存储在计算图的定义中，是占用内存的) 变量：当一个值在会话中需要更新时，使用变量来表示。变量在使用前需要被显示初始化。 占位符：用于将值输入到TensorFlow的图中，可以和feed_dict一起使用来输入数据。在训练神经网络时，通常用于提供新的训练样本。且在运行计算图时，可以为占位符赋值。故在构建一个计算图时不需要真正的输">
-<meta name="keywords" content="TensorFlow">
+  <meta name="description" content="2017年的一篇关于边云协同，计算分层卸载的文章 摘要当前，大多用到深度神经网络(DNN)的应用,如siri,Cortana及扫脸支付等，是以云计算为基础的。通过通信网络将绝大部分的数据运算，上传到云端进行。唯一的不足点就是延迟稍大，功耗大。 一个很自然的想法就是，充分利用周围的移动边缘设备。对神经网络动态的智能地分层，进而降低整体的延迟与功耗。最终的实验结果：端到端的延迟可以实现平均3.1x">
+<meta name="keywords" content="cloud and mobile edge">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TensorFlow基础">
-<meta property="og:url" content="https://LiuCanWu.github.io/2020/02/21/TensorFlow基础/index.html">
+<meta property="og:title" content="论文Neurosurgeon">
+<meta property="og:url" content="https://LiuCanWu.github.io/2020/03/01/论文Neurosurgeon/index.html">
 <meta property="og:site_name" content="劉Yang の Blog">
-<meta property="og:description" content="TensorFlow支持三种类型的张量 常量：为值不可改变的张量(存储在计算图的定义中，是占用内存的) 变量：当一个值在会话中需要更新时，使用变量来表示。变量在使用前需要被显示初始化。 占位符：用于将值输入到TensorFlow的图中，可以和feed_dict一起使用来输入数据。在训练神经网络时，通常用于提供新的训练样本。且在运行计算图时，可以为占位符赋值。故在构建一个计算图时不需要真正的输">
+<meta property="og:description" content="2017年的一篇关于边云协同，计算分层卸载的文章 摘要当前，大多用到深度神经网络(DNN)的应用,如siri,Cortana及扫脸支付等，是以云计算为基础的。通过通信网络将绝大部分的数据运算，上传到云端进行。唯一的不足点就是延迟稍大，功耗大。 一个很自然的想法就是，充分利用周围的移动边缘设备。对神经网络动态的智能地分层，进而降低整体的延迟与功耗。最终的实验结果：端到端的延迟可以实现平均3.1x">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/TensorFlow基础/1.JPG">
-<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/TensorFlow基础/2.JPG">
-<meta property="og:updated_time" content="2020-02-25T14:51:54.702Z">
+<meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/1.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/2.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/3.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/4.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/5.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/6.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/7.JPG%5D">
+<meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/8.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/9.JPG">
+<meta property="og:updated_time" content="2020-03-02T09:20:27.077Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TensorFlow基础">
-<meta name="twitter:description" content="TensorFlow支持三种类型的张量 常量：为值不可改变的张量(存储在计算图的定义中，是占用内存的) 变量：当一个值在会话中需要更新时，使用变量来表示。变量在使用前需要被显示初始化。 占位符：用于将值输入到TensorFlow的图中，可以和feed_dict一起使用来输入数据。在训练神经网络时，通常用于提供新的训练样本。且在运行计算图时，可以为占位符赋值。故在构建一个计算图时不需要真正的输">
-<meta name="twitter:image" content="https://liucanwu.github.io/2020/02/21/TensorFlow基础/1.JPG">
+<meta name="twitter:title" content="论文Neurosurgeon">
+<meta name="twitter:description" content="2017年的一篇关于边云协同，计算分层卸载的文章 摘要当前，大多用到深度神经网络(DNN)的应用,如siri,Cortana及扫脸支付等，是以云计算为基础的。通过通信网络将绝大部分的数据运算，上传到云端进行。唯一的不足点就是延迟稍大，功耗大。 一个很自然的想法就是，充分利用周围的移动边缘设备。对神经网络动态的智能地分层，进而降低整体的延迟与功耗。最终的实验结果：端到端的延迟可以实现平均3.1x">
+<meta name="twitter:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/1.JPG">
   <link rel="alternate" href="/atom.xml" title="劉Yang の Blog" type="application/atom+xml">
-  <link rel="canonical" href="https://LiuCanWu.github.io/2020/02/21/TensorFlow基础/">
+  <link rel="canonical" href="https://LiuCanWu.github.io/2020/03/01/论文Neurosurgeon/">
 
 
 <script id="page.configurations">
@@ -84,7 +91,7 @@
   };
 </script>
 
-  <title>TensorFlow基础 | 劉Yang の Blog</title>
+  <title>论文Neurosurgeon | 劉Yang の Blog</title>
   
 
 
@@ -250,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://LiuCanWu.github.io/2020/02/21/TensorFlow基础/">
+    <link itemprop="mainEntityOfPage" href="https://LiuCanWu.github.io/2020/03/01/论文Neurosurgeon/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liu Yang">
@@ -264,7 +271,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">TensorFlow基础
+          <h1 class="post-title" itemprop="name headline">论文Neurosurgeon
 
               
             
@@ -284,7 +291,7 @@
                 
               
 
-              <time title="创建时间：2020-02-21 21:32:52" itemprop="dateCreated datePublished" datetime="2020-02-21T21:32:52+08:00">2020-02-21</time>
+              <time title="创建时间：2020-03-01 16:54:00" itemprop="dateCreated datePublished" datetime="2020-03-01T16:54:00+08:00">2020-03-01</time>
             </span>
           
             
@@ -297,7 +304,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-25 22:51:54" itemprop="dateModified" datetime="2020-02-25T22:51:54+08:00">2020-02-25</time>
+                <time title="修改时间：2020-03-02 17:20:27" itemprop="dateModified" datetime="2020-03-02T17:20:27+08:00">2020-03-02</time>
               </span>
             
           
@@ -314,8 +321,8 @@
       <span class="post-meta-item-text">评论数：</span>
     
   
-    <a href="/2020/02/21/TensorFlow基础/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/21/TensorFlow基础/" itemprop="commentCount"></span>
+    <a href="/2020/03/01/论文Neurosurgeon/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/01/论文Neurosurgeon/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -328,7 +335,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">953</span>
+              <span title="本文字数">2k</span>
             </span>
           
             <span class="post-meta-item">
@@ -338,7 +345,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">1 分钟</span>
+              <span title="阅读时长">2 分钟</span>
             </span>
           
 
@@ -353,47 +360,79 @@
       
         <a id="more"></a>
 
+<p>2017年的一篇关于边云协同，计算分层卸载的文章</p>
+<h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><p>当前，大多用到深度神经网络(DNN)的应用,如siri,Cortana及扫脸支付等，是以云计算为基础的。通过通信网络将绝大部分的数据运算，上传到云端进行。唯一的不足点就是延迟稍大，功耗大。</p>
+<p>一个很自然的想法就是，充分利用周围的移动边缘设备。对神经网络动态的智能地分层，进而降低整体的延迟与功耗。最终的实验结果：端到端的延迟可以实现平均3.1x到40.7x的降低，移动端功耗平均节省59.5%到94.7%，数据中心吞的吐量扩大1.5x到6.7x。</p>
+<p> <img src="1.JPG" alt></p>
+<p>上图中三种可行方法：</p>
 <ul>
-<li>TensorFlow支持三种类型的张量<ol>
-<li>常量：为值不可改变的张量(存储在计算图的定义中，是占用内存的)</li>
-<li>变量：当一个值在会话中需要更新时，使用变量来表示。变量在使用前需要被显示初始化。</li>
-<li>占位符：用于将值输入到TensorFlow的图中，可以和feed_dict一起使用来输入数据。在训练神经网络时，通常用于提供新的训练样本。且在运行计算图时，可以为占位符赋值。故在构建一个计算图时不需要真正的输入数据。因此占位符不包含任何数据，不需要初始化它们。</li>
-</ol>
-</li>
+<li>a: 通过通信网络上传大量数据到服务器端，带来1：高延迟、高功耗，2：将个人隐私数据上传服务器有可能带来隐私泄露的危险。</li>
+<li>b和c: 将计算部分或全部推向边缘设备，文中对8类DNN(设计图像、文本、语音处理)进行了实验，b比a快了11x。但是基于神经层的分层方法，在端到端的延迟及移动端的功耗方面表现更好。</li>
 </ul>
-<p>所有常量、变量、占位符将在代码的计算图部分中定义。如果在定义部分使用print语句，输出的不是它的值，而是有关张量类型的信息。</p>
-<p><img src="1.JPG" alt="1"></p>
-<p>为了得到相关的值需要创建会话图，在会话图中进行输出。</p>
-<p><img src="2.JPG" alt="2"></p>
+<p>在这篇文章中，作者主要做的工作如下:</p>
 <ul>
-<li><p>TensorFlow程序的特点为，将程序分为两个独立的部分。1.构建神经网络蓝图，包括计算图的定义。2.在会话中执行计算图。正是图的定义与执行的分开设计让TF能够多平台及并行执行。</p>
-<blockquote>
-<p><strong>会话对象评估张量与操作对象的环境，不同的张量对象的值仅在会话对象中被初始化、访问和保存。在此之前张量对象只被抽象定义，在会话中才被赋予实际的意义。</strong></p>
+<li>对已有的方法实验分析：实验各种DNN模型在云端及在移动端执行时的延迟及功耗表现。</li>
+<li>DNN模型计算及输出的数据特点研究：实验显示，不同类型及配置的神经网络层，在计算量及数据规模方面有显著的不同。、</li>
+<li>云与边缘的协同分层计算：根据不同层的计算及数据量特点，寻找最优分割点，得到最大的效益。</li>
+<li>设计了神经网络层的性能预测模型：该模型可根据神经网络层的类型及配置，预测出其延迟及功耗指标。</li>
+</ul>
+<h3 id="完全由云端或移动端执行实验比较"><a href="#完全由云端或移动端执行实验比较" class="headerlink" title="完全由云端或移动端执行实验比较"></a>完全由云端或移动端执行实验比较</h3><p>其中移动端与云端的实验配置如下表</p>
+<p><img src="2.JPG" alt="移动端">         <img src="3.JPG" alt="服务器端"></p>
+<p>实验用的模型是，8层的AlexNet，完成单次单张152KB图片的推理，若上传云端有，3G，LTE，及Wi-Fi三种通信方式。主要的衡量指标如下：</p>
+<ul>
+<li>通信延迟：结果显示三种通信方式中，最慢是的3G方式，最快是Wi-Fi(差了近十倍)，说明选择好通信方式很重要。</li>
+<li>计算延迟：三种计算场景，mobile CPU, GPU及 cloud GPU,最慢的是移动端的CPU，但仍然比通过3G上传到云端计算快。</li>
+<li>端到端的延迟：总的延迟，即通信与计算延迟二者相加。在上传到云端的方式中，上传数据的通信时间占到了总消耗时间的94%。</li>
+<li>功耗：在功耗方面通过Wi-Fi方式上传，消耗的功耗最少。在移动端通过CPU计算的方式功耗最大。</li>
+</ul>
+<p>（发现，<strong>通过Wi-Fi上传</strong>延迟及功耗表现还可以呀!）</p>
+<p><img src="4.JPG" alt="延迟对比">           <img src="5.JPG" alt="功耗对比"></p>
+<h3 id="AlexNet每一层的特点"><a href="#AlexNet每一层的特点" class="headerlink" title="AlexNet每一层的特点"></a>AlexNet每一层的特点</h3><blockquote>
+<p>都是基于GPU上的表现</p>
 </blockquote>
-</li>
-</ul>
-<ul>
-<li>run函数原型：<code>run(fetches,feed_dict=None,options=None,run_metadata)</code> ,其中运算结果在fetches中提取，为了得到fetches的结果所需的变量由<code>feed_dict</code> 提供。</li>
-</ul>
-<h3 id="如何指定CPU或GPU操作"><a href="#如何指定CPU或GPU操作" class="headerlink" title="如何指定CPU或GPU操作"></a>如何指定CPU或GPU操作</h3><h3 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h3><p>在 TensorFlow 中可以通过三种方式读取数据：</p>
+<p><img src="6.JPG" alt="每一层的特点"></p>
+<blockquote>
 <ol>
-<li>通过feed_dict传递数据；</li>
-<li>从文件中读取数据；</li>
-<li>使用预加载的数据；</li>
+<li>不同类型，不同层的网络在计算及输出数据方面有很大不同</li>
+<li>卷积层及池化层在mobile GPU 上不是很耗时间，而全连接层（可能因为参数多）的延迟却很大</li>
+<li>在神经网络的前半部分输出数据逐渐减少，后半部分的网络延迟逐渐变大，意味着在网络的中间部分有一个独一无二的计算分割点。</li>
 </ol>
-<ul>
-<li>在进行多元线性回归时，由于每个特征具有不同的值范围，归一化变得至关重要。</li>
-<li>还可以使用 tf.summary.histogram 可视化梯度、权重或<strong>特定层的输出分布</strong>：</li>
-</ul>
-<blockquote>
-<p><strong>激活函数的作用</strong></p>
-<p>每个神经元都必须有激活函数。它们为神经元提供了模拟复杂非线性数据集所必需的非线性特性。该函数取所有输入的加权和，进而生成一个输出信号。你可以把它看作输入和输出之间的转换。使用适当的激活函数，可以将输出值限定在一个定义的范围内。</p>
 </blockquote>
-<h3 id="tf-一系列方法学习"><a href="#tf-一系列方法学习" class="headerlink" title="tf.(一系列方法学习)"></a>tf.(一系列方法学习)</h3><ul>
-<li>tf.argmax(input, axis):根据axis的不同返回每行或每列最大值的索引。</li>
-<li>tf.cast(x, dtype, name=None): 进行张量数据类型转换</li>
+<p>实验手动寻找最佳分割点，逐个点实验若从该点分割其延迟及功耗表现</p>
+<p><img src="7.JPG%5D" alt="寻找分割点">               <img src="8.JPG" alt="功耗表现"></p>
+<p>在最佳分割点，其中速度比cloud-only提升2x, 功耗节省18%</p>
+<p>作者也在其他类型的DNN上进行了类似实验并得出结论：</p>
+<blockquote>
+<ol>
+<li>在只有全连接层的DNN中每一层的差异很小</li>
+<li>CV的$DNN_s$ 往往在中间层能够找到分割点，而对于处理音频、自然语言这些的DNN其分割点往往在最前端或末端。因此需要一个系统能够自动的找到这个最优的分割点。</li>
+</ol>
+</blockquote>
+<h3 id="Neurosurgeon"><a href="#Neurosurgeon" class="headerlink" title="Neurosurgeon"></a>Neurosurgeon</h3><p>最佳分割点除了模型的结构及数据规模外，其他的动态因素还有无线网络环境，及服务器端的上传网络环境。为应对这些动态因素，需要一个自动化的智能系统来寻找这个最佳分割点。</p>
+<p>这个Neurosurgeon，包括两个阶段：部署及运行</p>
+<ul>
+<li>部署：此阶段会根据神经网络每一层的类型产生一个预测模型，对于给定的移动及服务器平台此步骤只要运行一次</li>
+<li>运行：Neurosurgen会提取目标DNN的层的类型及配置；预测每一层在移动端或云端运行所需延迟及功耗；将这些预测结果与当前的无线通信环境及服务器端数据中心的下载率结合，选出最佳分割点；执行分割后的前后任务。</li>
 </ul>
-
+<h3 id="构建性能预测模型"><a href="#构建性能预测模型" class="headerlink" title="构建性能预测模型"></a>构建性能预测模型</h3><p>对同一种网络模型，进行不同的参数配置。得到一组关于配置参数及其延迟功耗的数据。根据这些数据对每一类的网络层建立了回归模型，根据其参数配置来预测它的延迟及功耗。[其中用到了逻辑回归及线性回归模型]</p>
+<blockquote>
+<p>卷积及池化层： 参数包括输入特征图的维度(w及H)、数量，卷积核的大小及步长。</p>
+<p>全连接层及Softmax层：输入及输出神经元的数量</p>
+<p>激活层、归一化层：当前层的神经元数量</p>
+</blockquote>
+<h3 id="开始动态分层-DNN-Partitioning"><a href="#开始动态分层-DNN-Partitioning" class="headerlink" title="开始动态分层 DNN Partitioning"></a>开始动态分层 DNN Partitioning</h3><p>此过程包括<strong>分析目标DNN</strong>及<strong>分割点选择</strong>。整个算法执行过程如下</p>
+<p><img src="9.JPG" alt="算法执行过程"></p>
+<p>目标DNN分析</p>
+<blockquote>
+<p>11、12行提取每层的类型及参数配置，使用回归模型预测$L_i $ 层在移动端及云端执行的延迟 $TM_i 及 TC_i$ 同时将当前数据中心的下载水平考虑进来。</p>
+<p>13行评估了在移动端执行$L_i$ 的功耗$PM_i$ </p>
+<p>14行计算了基于当前通信环境的无线数据发送延迟$TU_i$</p>
+</blockquote>
+<p>分割点选择</p>
+<blockquote>
+<p>16,18行评估在当前候选点进行分割的性能表现，基于最短延迟或最少功耗选出分割点。由于回归模型简单，此过程还是相当高效的</p>
+</blockquote>
+<h4 id="分割执行过程"><a href="#分割执行过程" class="headerlink" title="分割执行过程"></a>分割执行过程</h4>
     </div>
 
     
@@ -404,13 +443,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+            <a href="/tags/cloud-and-mobile-edge/" rel="tag"># cloud and mobile edge</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/21/Quantization概述/" rel="next" title="Quantization">
-                <i class="fa fa-chevron-left"></i> Quantization
+              <a href="/2020/02/25/韩韩松-Deep-Compression/" rel="next" title="韩韩松_Deep_Compression">
+                <i class="fa fa-chevron-left"></i> 韩韩松_Deep_Compression
               </a>
             
           </div>
@@ -418,10 +457,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/23/论文——-Lwc/" rel="prev" title="论文——_Lwc">
-                论文——_Lwc <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -561,7 +596,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何指定CPU或GPU操作"><span class="nav-number">1.</span> <span class="nav-text">如何指定CPU或GPU操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读取数据"><span class="nav-number">2.</span> <span class="nav-text">读取数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-一系列方法学习"><span class="nav-number">3.</span> <span class="nav-text">tf.(一系列方法学习)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完全由云端或移动端执行实验比较"><span class="nav-number"></span> <span class="nav-text">完全由云端或移动端执行实验比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AlexNet每一层的特点"><span class="nav-number"></span> <span class="nav-text">AlexNet每一层的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Neurosurgeon"><span class="nav-number"></span> <span class="nav-text">Neurosurgeon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建性能预测模型"><span class="nav-number"></span> <span class="nav-text">构建性能预测模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始动态分层-DNN-Partitioning"><span class="nav-number"></span> <span class="nav-text">开始动态分层 DNN Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分割执行过程"><span class="nav-number">1.</span> <span class="nav-text">分割执行过程</span></a></li></ol></div>
             
 
           </div>
