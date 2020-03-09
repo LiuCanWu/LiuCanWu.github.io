@@ -73,10 +73,12 @@
 <meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/4.JPG">
 <meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/5.JPG">
 <meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/6.JPG">
-<meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/7.JPG%5D">
+<meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/7.JPG">
 <meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/8.JPG">
 <meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/9.JPG">
-<meta property="og:updated_time" content="2020-03-02T09:20:27.077Z">
+<meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/10.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/03/01/论文Neurosurgeon/11.JPG">
+<meta property="og:updated_time" content="2020-03-03T06:44:16.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文Neurosurgeon">
 <meta name="twitter:description" content="2017年的一篇关于边云协同，计算分层卸载的文章 摘要当前，大多用到深度神经网络(DNN)的应用,如siri,Cortana及扫脸支付等，是以云计算为基础的。通过通信网络将绝大部分的数据运算，上传到云端进行。唯一的不足点就是延迟稍大，功耗大。 一个很自然的想法就是，充分利用周围的移动边缘设备。对神经网络动态的智能地分层，进而降低整体的延迟与功耗。最终的实验结果：端到端的延迟可以实现平均3.1x">
@@ -181,6 +183,17 @@
     
 
     <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
   </li>
         
@@ -304,7 +317,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-02 17:20:27" itemprop="dateModified" datetime="2020-03-02T17:20:27+08:00">2020-03-02</time>
+                <time title="修改时间：2020-03-03 14:44:16" itemprop="dateModified" datetime="2020-03-03T14:44:16+08:00">2020-03-03</time>
               </span>
             
           
@@ -335,7 +348,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2k</span>
+              <span title="本文字数">2.3k</span>
             </span>
           
             <span class="post-meta-item">
@@ -399,7 +412,7 @@
 </ol>
 </blockquote>
 <p>实验手动寻找最佳分割点，逐个点实验若从该点分割其延迟及功耗表现</p>
-<p><img src="7.JPG%5D" alt="寻找分割点">               <img src="8.JPG" alt="功耗表现"></p>
+<p><img src="7.JPG" alt="寻找分割点">               <img src="8.JPG" alt="功耗表现"></p>
 <p>在最佳分割点，其中速度比cloud-only提升2x, 功耗节省18%</p>
 <p>作者也在其他类型的DNN上进行了类似实验并得出结论：</p>
 <blockquote>
@@ -432,7 +445,29 @@
 <blockquote>
 <p>16,18行评估在当前候选点进行分割的性能表现，基于最短延迟或最少功耗选出分割点。由于回归模型简单，此过程还是相当高效的</p>
 </blockquote>
-<h4 id="分割执行过程"><a href="#分割执行过程" class="headerlink" title="分割执行过程"></a>分割执行过程</h4>
+<h4 id="分割执行过程"><a href="#分割执行过程" class="headerlink" title="分割执行过程"></a>分割执行过程</h4><p>在此过程，移动端与服务器端都运行着<strong>完整的DNN模型</strong> ，在移动端确定分割点，执行过程移动端将分割点的输出结果发送到服务器端，然后服务器端再执行后面的计算。最后将最终结果返回给移动端。</p>
+<h3 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h3><blockquote>
+<ol>
+<li><p>端到端的延迟</p>
+</li>
+<li><p>移动端的功耗</p>
+</li>
+<li><p>与其他的计算卸载框架比较</p>
+</li>
+<li><p>在不同无线通信环境下的稳定性</p>
+</li>
+<li><p>不同的 sever load 水平下的表现</p>
+</li>
+<li><p>将计算推到边缘后数据中心(datacenter)吞吐量的提升</p>
+</li>
+</ol>
+</blockquote>
+<p>最佳延迟分割点，及不同模型的延迟加速</p>
+<p>在实验的48种情形中，自动的选出了44个。以及在不同通信方式下的加速比较。</p>
+<p><img src="10.JPG" alt></p>
+<p>在不同通信环境下的稳定性,由下图可以看出，在不同的通信环境下，论文中的系统会动态的做出最优的调整，整个端到端的时间没有太大的起伏。</p>
+<p><img src="11.JPG" alt></p>
+
     </div>
 
     
@@ -457,6 +492,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+              <a href="/2020/03/09/【总结】：知识蒸馏/" rel="prev" title="【总结】：知识蒸馏">
+                【总结】：知识蒸馏 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
     </footer>
@@ -514,7 +553,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -541,7 +580,9 @@
         
           
         
-        <span class="site-state-item-count">8</span>
+          
+        
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
@@ -596,7 +637,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完全由云端或移动端执行实验比较"><span class="nav-number"></span> <span class="nav-text">完全由云端或移动端执行实验比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AlexNet每一层的特点"><span class="nav-number"></span> <span class="nav-text">AlexNet每一层的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Neurosurgeon"><span class="nav-number"></span> <span class="nav-text">Neurosurgeon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建性能预测模型"><span class="nav-number"></span> <span class="nav-text">构建性能预测模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始动态分层-DNN-Partitioning"><span class="nav-number"></span> <span class="nav-text">开始动态分层 DNN Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分割执行过程"><span class="nav-number">1.</span> <span class="nav-text">分割执行过程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完全由云端或移动端执行实验比较"><span class="nav-number"></span> <span class="nav-text">完全由云端或移动端执行实验比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AlexNet每一层的特点"><span class="nav-number"></span> <span class="nav-text">AlexNet每一层的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Neurosurgeon"><span class="nav-number"></span> <span class="nav-text">Neurosurgeon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建性能预测模型"><span class="nav-number"></span> <span class="nav-text">构建性能预测模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始动态分层-DNN-Partitioning"><span class="nav-number"></span> <span class="nav-text">开始动态分层 DNN Partitioning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分割执行过程"><span class="nav-number">1.</span> <span class="nav-text">分割执行过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验内容"><span class="nav-number"></span> <span class="nav-text">实验内容</span></a></div>
             
 
           </div>
@@ -631,12 +672,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">16k</span>
+    <span title="站点总字数">17k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">14 分钟</span>
+    <span title="站点阅读时长">16 分钟</span>
 </div>
 
 <div class="powered-by">
@@ -707,6 +748,8 @@
 
 
 
+
+  
 
 
 

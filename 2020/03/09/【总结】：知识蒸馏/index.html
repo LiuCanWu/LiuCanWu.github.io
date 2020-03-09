@@ -59,23 +59,23 @@
   };
 </script>
 
-  <meta name="description" content="量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表示INT8。当然，用更少的位数表示如4/2/1-bits表示，也在积极探索中。 练一下插入数学公式，文章底部引用动机：overall efficiency进行量">
-<meta name="keywords" content="model compress quantization">
+  <meta name="description" content="rf : 引自Geoffery Hinton (Dark knowledge)  神经网络学习与使用的矛盾 从训练数据集中提取大量的知识最简单的方式是，并行训练多个不同的模型 同时希望训练得到的模型尽可能的不同，来最小化其误差之间的相关性 可以使用不同的初始化方式、不同的网络结构、或不同的训练子集 这种情况下，将单个模型过拟合训练，是有益的   测试时，将所有模型的预测输出取平均，或选择输出误差">
+<meta name="keywords" content="知识蒸馏">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Quantization">
-<meta property="og:url" content="https://LiuCanWu.github.io/2020/02/21/Quantization/index.html">
+<meta property="og:title" content="【总结】：知识蒸馏">
+<meta property="og:url" content="https://LiuCanWu.github.io/2020/03/09/【总结】：知识蒸馏/index.html">
 <meta property="og:site_name" content="劉Yang の Blog">
-<meta property="og:description" content="量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表示INT8。当然，用更少的位数表示如4/2/1-bits表示，也在积极探索中。 练一下插入数学公式，文章底部引用动机：overall efficiency进行量">
+<meta property="og:description" content="rf : 引自Geoffery Hinton (Dark knowledge)  神经网络学习与使用的矛盾 从训练数据集中提取大量的知识最简单的方式是，并行训练多个不同的模型 同时希望训练得到的模型尽可能的不同，来最小化其误差之间的相关性 可以使用不同的初始化方式、不同的网络结构、或不同的训练子集 这种情况下，将单个模型过拟合训练，是有益的   测试时，将所有模型的预测输出取平均，或选择输出误差">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Quantization/1.JPG">
-<meta property="og:image" content="https://liucanwu.github.io/2020/02/21/Quantization/2.JPG">
-<meta property="og:updated_time" content="2020-02-22T09:04:37.642Z">
+<meta property="og:image" content="https://liucanwu.github.io/2020/03/09/【总结】：知识蒸馏/1.JPG">
+<meta property="og:image" content="https://liucanwu.github.io/2020/03/09/【总结】：知识蒸馏/2.JPG">
+<meta property="og:updated_time" content="2020-03-09T15:36:26.365Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Quantization">
-<meta name="twitter:description" content="量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表示INT8。当然，用更少的位数表示如4/2/1-bits表示，也在积极探索中。 练一下插入数学公式，文章底部引用动机：overall efficiency进行量">
-<meta name="twitter:image" content="https://liucanwu.github.io/2020/02/21/Quantization/1.JPG">
+<meta name="twitter:title" content="【总结】：知识蒸馏">
+<meta name="twitter:description" content="rf : 引自Geoffery Hinton (Dark knowledge)  神经网络学习与使用的矛盾 从训练数据集中提取大量的知识最简单的方式是，并行训练多个不同的模型 同时希望训练得到的模型尽可能的不同，来最小化其误差之间的相关性 可以使用不同的初始化方式、不同的网络结构、或不同的训练子集 这种情况下，将单个模型过拟合训练，是有益的   测试时，将所有模型的预测输出取平均，或选择输出误差">
+<meta name="twitter:image" content="https://liucanwu.github.io/2020/03/09/【总结】：知识蒸馏/1.JPG">
   <link rel="alternate" href="/atom.xml" title="劉Yang の Blog" type="application/atom+xml">
-  <link rel="canonical" href="https://LiuCanWu.github.io/2020/02/21/Quantization/">
+  <link rel="canonical" href="https://LiuCanWu.github.io/2020/03/09/【总结】：知识蒸馏/">
 
 
 <script id="page.configurations">
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title>Quantization | 劉Yang の Blog</title>
+  <title>【总结】：知识蒸馏 | 劉Yang の Blog</title>
   
 
 
@@ -137,7 +137,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">风月同天</p>
+        <p class="site-subtitle">道阻且长，行则将至</p>
       
   </div>
 
@@ -174,6 +174,17 @@
     
 
     <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
 
   </li>
         
@@ -250,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://LiuCanWu.github.io/2020/02/21/Quantization/">
+    <link itemprop="mainEntityOfPage" href="https://LiuCanWu.github.io/2020/03/09/【总结】：知识蒸馏/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liu Yang">
@@ -264,7 +275,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">Quantization
+          <h1 class="post-title" itemprop="name headline">【总结】：知识蒸馏
 
               
             
@@ -284,21 +295,11 @@
                 
               
 
-              <time title="创建时间：2020-02-21 21:05:06" itemprop="dateCreated datePublished" datetime="2020-02-21T21:05:06+08:00">2020-02-21</time>
+              <time title="创建时间：2020-03-09 15:31:36 / 修改时间：23:36:26" itemprop="dateCreated datePublished" datetime="2020-03-09T15:31:36+08:00">2020-03-09</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-02-22 17:04:37" itemprop="dateModified" datetime="2020-02-22T17:04:37+08:00">2020-02-22</time>
-              </span>
             
           
 
@@ -314,8 +315,8 @@
       <span class="post-meta-item-text">评论数：</span>
     
   
-    <a href="/2020/02/21/Quantization/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/21/Quantization/" itemprop="commentCount"></span>
+    <a href="/2020/03/09/【总结】：知识蒸馏/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/09/【总结】：知识蒸馏/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -328,7 +329,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">897</span>
+              <span title="本文字数">1.2k</span>
             </span>
           
             <span class="post-meta-item">
@@ -351,35 +352,60 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <a id="more"></a>
-
-<p>量化是指减少表示一个数字时所用的位数，在研究或部署深度学习算法时主要的表示形式为32位的浮点数表示(FP32)。为了减少带宽与计算量，学界尝试使用更低的精度表示。并且已经证实在没有造成精度显著下降的条件下，权重及激活值可以使用8位整型表示INT8。当然，用更少的位数表示如4/2/1-bits表示，也在积极探索中。</p>
-<h2 id="练一下插入数学公式，文章底部引用"><a href="#练一下插入数学公式，文章底部引用" class="headerlink" title="练一下插入数学公式，文章底部引用"></a>练一下插入数学公式，文章底部引用</h2><h2 id="动机：overall-efficiency"><a href="#动机：overall-efficiency" class="headerlink" title="动机：overall efficiency"></a>动机：overall efficiency</h2><p>进行量化的显著优势是，能明显降低带宽与所用存储。如用INT8来表示权重与激活值相较与FP32表示能减少4倍带宽利用。此外，整形运算比浮点计算更快，存储空间及耗能更少。</p>
-<table>
-<thead>
-<tr>
-<th>INT8 Operation</th>
-<th>Energy Saving vs FP32</th>
-<th>Area Saving vs FP32</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Add</td>
-<td>30x</td>
-<td>116x</td>
-</tr>
-<tr>
-<td>Multiply</td>
-<td>18.5x</td>
-<td>27x</td>
-</tr>
-</tbody></table>
-<p>若用更少的位数量化，如二进制(-1,1)或三进制(-1,0,1).则卷积层与全连接层只需加减操作，完全不需要乘法。若激活值也用二进制表示，那加法也不需要了，只需要进行位操作<a href="https://nervanasystems.github.io/distiller/quantization.html#rastegari-et-al-2016" target="_blank" rel="noopener">Rastegari et al., 2016</a></p>
-<h2 id="Integer-vs-FP32"><a href="#Integer-vs-FP32" class="headerlink" title="Integer vs. FP32"></a>Integer vs. FP32</h2><p>数字格式主要有两个属性，1. 动态范围，指可表示的数的范围。2. 在动态范围内能够表示多少数值，决定了精度/分辨率。</p>
-<p>对于整形格式它的动态范围是<img src="1.JPG" alt="range">, n是位数，如INT8的范围是[-128, 127].对于FP32它的动态范围大约是<img src="2.JPG" alt="fprange">.可以看出FP32能够表示更多的值，这对于深度学习模型来说很好。位了解决动态范围窄的问题，通常会加入scale factor将模型中向量的动态范围映射到整形范围中。但精度低的问题依然没有解决。</p>
-<p>需要指出，大多数情况下scale factor是一个浮点数，即使使用整数表示，也避免不了浮点运算。</p>
-<h2 id="避免溢出"><a href="#避免溢出" class="headerlink" title="避免溢出"></a>避免溢出</h2><p>卷积及全连接层中包括在加法器存储中间值，限于整形格式有限的动态范围，对于加法器如果使用和权重及激活值相同的位宽，很肯能会溢出很快，因此，加法器通常使用更高的位宽。</p>
-<h2 id="INT8量化"><a href="#INT8量化" class="headerlink" title="INT8量化"></a>INT8量化</h2><p>大多数情况，可以对一个FP32的模型直接进行INT8量化，在没有re-training的情况下，可得到精度损失很小的结果，若进行fine-tunning可进一步提高精度。</p>
+        <blockquote>
+<p>rf : 引自Geoffery Hinton (Dark knowledge)</p>
+</blockquote>
+<h4 id="神经网络学习与使用的矛盾"><a href="#神经网络学习与使用的矛盾" class="headerlink" title="神经网络学习与使用的矛盾"></a>神经网络学习与使用的矛盾</h4><ul>
+<li>从训练数据集中提取大量的知识最简单的方式是，并行训练多个不同的模型<ul>
+<li>同时希望训练得到的模型尽可能的不同，来最小化其误差之间的相关性</li>
+<li>可以使用不同的初始化方式、不同的网络结构、或不同的训练子集</li>
+<li>这种情况下，将单个模型过拟合训练，是有益的</li>
+</ul>
+</li>
+<li>测试时，将所有模型的预测输出取平均，或选择输出误差相关性最小的一个子集</li>
+</ul>
+<h4 id="集成模型在测试时的劣势"><a href="#集成模型在测试时的劣势" class="headerlink" title="集成模型在测试时的劣势"></a>集成模型在测试时的劣势</h4><ul>
+<li>大的集成模型参数是高度冗余的，每个参数所含的知识量很少</li>
+<li>在测试阶段期望计算量集内存占用最少</li>
+</ul>
+<h4 id="The-main-idea"><a href="#The-main-idea" class="headerlink" title="The main idea"></a>The main idea</h4><ul>
+<li>这个大的集成模型的功能，可以看作是输入向量与输出向量之间的映射（一个函数）</li>
+<li>主要的想法就是，能否将这个集成模型所实现的函数功能迁移到一个更小的模型中去</li>
+</ul>
+<p><strong>软标签-Soft targets:</strong></p>
+<p>Net-T：教师模型</p>
+<p>Net-S：学生模型</p>
+<p>在知识蒸馏时，有一个泛化能力较强的Net-T,让Net-T来蒸馏训练Net-S。此时能高效的迁移泛化能力的方法就是使用Net-T的softmax层输出的类别概率作为”soft target“</p>
+<ol>
+<li>传统训练过程(<strong>hard target</strong>s): 对ground truth求极大似然</li>
+<li>KD的训练过程(<strong>soft targets</strong>): 用large model的class probabilities作为soft targets</li>
+</ol>
+<p><img src="1.JPG" alt></p>
+<blockquote>
+</blockquote>
+<p>软标签的形式如上图所示，就是在原始的softmax函数中增加了一温度变量T。</p>
+<p><strong>为什么？</strong> 原始softmax函数输出的概率分布熵较小(大的概率值很大，小的概率值很小)，负标签的值都很接近0，对函数的贡献非常小，小到可以忽略不记。</p>
+<p>当加入温度变量T之后，T越高softmax的概率输出分布越趋于平滑，概率分布熵也越大。负标签携带的信息也会被相应的放大，模型训练会更加关注负标签所拥有的<strong>Knowledge</strong> 。这种训练方式使得每个样本给Net-S带来的信息量远大于传统的训练方式。</p>
+<h4 id="知识蒸馏的具体过程"><a href="#知识蒸馏的具体过程" class="headerlink" title="知识蒸馏的具体过程"></a>知识蒸馏的具体过程</h4><p><img src="2.JPG" alt="训练过程"></p>
+<ul>
+<li><p>第一步是训练Net-T，第二步在高温T下，蒸馏Net-T的知识到Net-S。高温蒸馏的目标函数由两部分组成</p>
+<p>$L = \alpha L_s + \beta L_h$</p>
+</li>
+<li><p>$v_i$: Net-T的logits</p>
+</li>
+<li><p>$z_i$ : Net-S的logts</p>
+</li>
+<li><p>$p_i^T$: Net-T 在温度=T下的softmax输出在第i类上的值</p>
+</li>
+<li><p>$q_i^T$: Net-S 在温度=T下的softmax输出在第i类上的值</p>
+</li>
+<li><p>$c_i$: 在第i类上的ground truth值， $c_i $ $\in \lbrace 0, 1\rbrace$ , 正标签取1， 负标签取0</p>
+</li>
+<li><p>$N$ : 总标签数量</p>
+</li>
+<li><p>Net-T与Net-S同时输入transfer set,用Net-T产生的softmax distribution来作为soft target，Net-S 在相同温度T下的softmax输出与soft target 的cross entropy就是Loss函数的第一部分 $L_s$ </p>
+</li>
+</ul>
 
     </div>
 
@@ -391,13 +417,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/model-compress-quantization/" rel="tag"># model compress quantization</a>
+            <a href="/tags/知识蒸馏/" rel="tag"># 知识蒸馏</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2020/02/21/Regularization概述/" rel="next" title="Regularization概述">
-                <i class="fa fa-chevron-left"></i> Regularization概述
+              <a href="/2020/03/01/论文Neurosurgeon/" rel="next" title="论文Neurosurgeon">
+                <i class="fa fa-chevron-left"></i> 论文Neurosurgeon
               </a>
             
           </div>
@@ -405,10 +431,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2020/02/21/TensorFlow基础/" rel="prev" title="TensorFlow基础">
-                TensorFlow基础 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -466,7 +488,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -489,7 +511,13 @@
         
           
         
-        <span class="site-state-item-count">6</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
@@ -544,7 +572,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#练一下插入数学公式，文章底部引用"><span class="nav-number">1.</span> <span class="nav-text">练一下插入数学公式，文章底部引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动机：overall-efficiency"><span class="nav-number">2.</span> <span class="nav-text">动机：overall efficiency</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Integer-vs-FP32"><span class="nav-number">3.</span> <span class="nav-text">Integer vs. FP32</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免溢出"><span class="nav-number">4.</span> <span class="nav-text">避免溢出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INT8量化"><span class="nav-number">5.</span> <span class="nav-text">INT8量化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#神经网络学习与使用的矛盾"><span class="nav-number">1.</span> <span class="nav-text">神经网络学习与使用的矛盾</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集成模型在测试时的劣势"><span class="nav-number">2.</span> <span class="nav-text">集成模型在测试时的劣势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-main-idea"><span class="nav-number">3.</span> <span class="nav-text">The main idea</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#知识蒸馏的具体过程"><span class="nav-number">4.</span> <span class="nav-text">知识蒸馏的具体过程</span></a></li></ol></div>
             
 
           </div>
@@ -579,12 +607,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">12k</span>
+    <span title="站点总字数">17k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">11 分钟</span>
+    <span title="站点阅读时长">16 分钟</span>
 </div>
 
 <div class="powered-by">
@@ -655,6 +683,53 @@
 
 
 
+
+  
+    
+      <script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
 
 
 
